@@ -9,7 +9,7 @@
         <!-- Extra details for Live View on GitHub Pages -->
         <!-- Canonical SEO -->
         <link rel="canonical" href="https://www.creative-tim.com/product/black-dashboard-laravel" />
-        <!--  Social tags      -->
+        <!--  Social tags -->
         <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, Black dashboard Laravel bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, free dashboard, free admin dashboard, free bootstrap 4 admin dashboard">
         <meta name="description" content="Black Dashboard Laravel is a beautiful Bootstrap 4 admin dashboard with a large number of components, designed to look beautiful and organized. If you are looking for a tool to manage and visualize data about your business, this dashboard is the thing for you.">
         <!-- Schema.org markup for Google+ -->
@@ -33,18 +33,20 @@
         <meta property="og:site_name" content="Creative Tim" />
         <title>{{ config('app.name', 'Black Dashboard Laravel - Free Laravel Preset') }}</title>
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('asset/img/apple-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('asset/img/favicon.png') }}">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-        <!-- Icons -->
-        <link href="{{ asset('black') }}/css/nucleo-icons.css" rel="stylesheet" />
-        <!-- CSS -->
-      
-        <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         
-        <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+        <!-- Icons -->
+        <link href="{{ asset('asset/css/nucleo-icons.css') }}" rel="stylesheet" />
+        
+        <!-- CSS -->
+        <link href="{{ asset('asset/css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />
+        <link href="{{ asset('asset/css/theme.css') }}" rel="stylesheet" />
+        
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -53,6 +55,7 @@
         })(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
         <!-- End Google Tag Manager -->
     </head>
+
 <body class="">
             <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
@@ -143,7 +146,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            
+                           
             <div class="main-panel">
                     <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
                             <div class="container-fluid">
