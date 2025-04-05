@@ -27,9 +27,9 @@ class RegisterController extends Controller
                 'password' => $hashedPassword
             ]);
 
-            return response()->json([
-                'status' => 200
-            ]);
+            // return response()->json([q
+                return redirect()->route('login')->with('message', 'Ajout avec succès, veuillez vous connecter');
+            // ]);
         } catch (Exception $e) {
             return response()->json([
                 'status' => 400,
