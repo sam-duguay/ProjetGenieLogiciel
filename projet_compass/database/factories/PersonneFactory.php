@@ -24,9 +24,12 @@ class PersonneFactory extends Factory
     public function definition(): array
     {
         return [
-            'email' => fake()->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'nom' => fake()->unique()->firstName(),
+            'prenom' => fake()->unique()->lastName(),
+            'statut' => fake()->randomElement(['etudiant', 'professeur']),
+            'photo' => null,
+            'age' => fake()->rand(16, 100),
+            'sexe' => fake()->randomElement(['male', 'femelle'])
         ];
     }
 
@@ -36,7 +39,7 @@ class PersonneFactory extends Factory
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
+            // 'email_verified_at' => null,
         ]);
     }
 }
