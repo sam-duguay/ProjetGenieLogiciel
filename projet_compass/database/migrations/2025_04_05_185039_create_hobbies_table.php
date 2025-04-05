@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('nom');
             $table->string('categorie');
             $table->string('description');
-            $table->timestamp()->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

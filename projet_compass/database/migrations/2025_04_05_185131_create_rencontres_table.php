@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('disponibilite_id');
             $table->foreignId('personne_id');
-            $table->timestamp()->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

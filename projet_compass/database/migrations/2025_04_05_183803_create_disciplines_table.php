@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('disciplines', function (Blueprint $table){
             $table->id();
             $table->string('nom');
-            $table->timestamp()->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

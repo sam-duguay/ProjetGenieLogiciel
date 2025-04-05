@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('programmes', function (Blueprint $table){
             $table->id();
             $table->string('noProgramme');
-            $table->timestamp()->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

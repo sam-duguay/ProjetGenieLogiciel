@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string(column: 'sexe');
             $table->foreignId('discipline_id')->constrained('disciplines');
             $table->foreignId('programme_id')->constrained('programmes');
-            $table->timestamp()->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
