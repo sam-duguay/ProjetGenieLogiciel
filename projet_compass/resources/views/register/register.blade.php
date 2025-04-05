@@ -1,3 +1,3 @@
 @extends('layouts.app')
 
-@section('app.name', 'Rencontre+ | S\'inscrire')
+@section('titre', 'Rencontre+ | S\'inscrire')
