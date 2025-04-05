@@ -15,25 +15,26 @@ class RegisterController extends Controller
         return view('register.register');
     }
 
-    // public function register(Request $request)
-    // {
-    //     try {
+    public function register(Request $request)
+    {
+        dd($request);
+        // try {
 
-    //         $hashedPassword = Hash::make($request->password);
+        //     $hashedPassword = Hash::make($request->password);
 
-    //         User::insert([
-    //             'email' => $request->email,
-    //             'password' => $hashedPassword
-    //         ]);
+        //     User::insert([
+        //         'email' => $request->email,
+        //         'password' => $hashedPassword
+        //     ]);
 
-    //         return response()->json([
-    //             'status' => 200
-    //         ]);
-    //     } catch (Exception $e) {
-    //         return response()->json([
-    //             'status' => 400,
-    //             'errors' => $e
-    //         ]);
-    //     }
-    // }
+        //     return response()->json([
+        //         'status' => 200
+        //     ]);
+        // } catch (Exception $e) {
+        //     return response()->json([
+        //         'status' => 400,
+        //         'errors' => $e
+        //     ]);
+        // }
+    }
 }
