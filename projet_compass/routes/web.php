@@ -20,5 +20,9 @@ Route::get('/inscription', function () {
 Route::get('/inscription', 
 [RegisterController::class, 'getRegisterForm'])->name('register');
 
+//envoyer le formulaire d'inscription
+Route::post('register', 
+[RegisterController::class, 'register'])->name('register');
+
 Route::get('/connexion', 
 [LoginController::class, 'getLoginForm'])->name('login');
