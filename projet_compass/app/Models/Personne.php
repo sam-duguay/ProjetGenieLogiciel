@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Personne extends Model
 {
+
+    use HasFactory;
+
     protected $fillable = [
         'nom',
         'prenom',
@@ -16,10 +20,6 @@ class Personne extends Model
 
         'discipline_id',
         'programme_id'
-    ];
-
-    protected $hidden = [
-        'id'
     ];
 
     public function disciplines () {
