@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('statut');
+            $table->enum('statut', ['etudiant', 'professeur'])->default('etudiant');
             $table->string('photo');
             $table->integer(column: 'age');
             $table->string(column: 'sexe');
-            $table->timestamps();
+            $table->foreignId('discipline_id')->constrained('disciplines');
+            $table->foreignId('programme_id')->constrained('programmes');
+            $table->timestamp()->useCurrent();
         });
     }
 
