@@ -22,12 +22,26 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom'=> 'required|max:100',
-            'prenom'=> 'required|max:100',
-            'statut'=> 'required',
-            'photo'=> 'required',
-            'age'=> 'required|min:16|max:65',
-            'sexe'=> 'required|'
+            'nom' => 'required|max:50',
+            'prenom' => 'required|max:50',
+            'email' => 'required|email',
+            'mdp' => 'min:6|required_with:mdp_confirmation|same:mdp_confirmation',
+            'mdp_confirmation' => 'min:6'
+        ];
+    }
+
+    public function messages () {
+        return [
+            'nom.required'=> 'Un nom est requis',
+            'nom.max'=> 'Le nom doit contenir au plus 50 caracteres',
+            'prenom.required'=> 'Un nom est requis',
+            'prenom.max'=> 'Le nom doit contenir au plus 50 caracteres',
+            'email.required'=> 'Une adresse courriel est requis',
+            'email.email'=> "L'adresse courriel est invalide",
+            'mdp.min'=> "Le mot de passe doit etre compose d'au moins 6 caracteres",
+            'mdp.required_with'=> 'veuillez confirmer le mot de passe',
+            'mdp.same'=> 'Le mot de passe est la confirmation de mot de passe doit etre pareil',
+            'mdp_confirmation.min'=> 'La confirmation de mot de passe doit contenir le meme nombre de caracteres que le mot de passe'
         ];
     }
 }
