@@ -20,6 +20,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        
+
+
+        //Seeder pour table ayant aucune dépendances
+        $this->call(DisciplineTableSeeder::class);
+        $this->call(ProgrammeTableSeeder::class);
+
+
         Personne::factory(10)->create();
     }
 }

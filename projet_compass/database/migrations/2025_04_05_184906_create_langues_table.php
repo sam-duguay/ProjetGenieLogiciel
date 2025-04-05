@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personnes', function (Blueprint $table) {
+        Schema::create('langues', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('prenom');
-            $table->enum('statut', ['professeur', 'etudiant']);
-            $table->string('photo');
-            $table->integer(column: 'age');
-            $table->string(column: 'sexe');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personnes');
+        Schema::dropIfExists('langues');
     }
 };
