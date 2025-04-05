@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('statut');
+            $table->enum('statut', ['professeur', 'etudiant']);
             $table->string('photo');
             $table->integer(column: 'age');
             $table->string(column: 'sexe');

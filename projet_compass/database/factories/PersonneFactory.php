@@ -27,8 +27,8 @@ class PersonneFactory extends Factory
             'nom' => fake()->unique()->firstName(),
             'prenom' => fake()->unique()->lastName(),
             'statut' => fake()->randomElement(['etudiant', 'professeur']),
-            'photo' => null,
-            'age' => fake()->rand(16, 100),
+            'photo' => '',
+            'age' => fake()->numberBetween(16, 65),
             'sexe' => fake()->randomElement(['male', 'femelle'])
         ];
     }

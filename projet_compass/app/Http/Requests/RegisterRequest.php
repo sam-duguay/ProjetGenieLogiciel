@@ -24,10 +24,10 @@ class RegisterRequest extends FormRequest
         return [
             'nom'=> 'required|max:100',
             'prenom'=> 'required|max:100',
-            'nom'=> 'required|max:100',
-            'nom'=> 'required|max:100',
-            'nom'=> 'required|max:100',
-            'nom'=> 'required|max:100'
+            'statut'=> 'required',
+            'photo'=> 'required',
+            'age'=> 'required|min:16|max:65',
+            'sexe'=> 'required|'
         ];
     }
 }
