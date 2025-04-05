@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Personne>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
 class PersonneFactory extends Factory
 {
@@ -28,7 +28,7 @@ class PersonneFactory extends Factory
             'prenom' => fake()->unique()->lastName(),
             'statut' => fake()->randomElement(['etudiant', 'professeur']),
             'photo' => '',
-            'age' => fake()->numberBetween(16,65),
+            'age' => fake()->numberBetween(16, 65),
             'sexe' => fake()->randomElement(['male', 'femelle'])
         ];
     }
@@ -36,10 +36,10 @@ class PersonneFactory extends Factory
     /**
      * Indicate that the model's email address should be unverified.
      */
-    // public function unverified(): static
-    // {
-    //     return $this->state(fn (array $attributes) => [
-    //         // 'email_verified_at' => null,
-    //     ]);
-    // }
+    public function unverified(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            // 'email_verified_at' => null,
+        ]);
+    }
 }

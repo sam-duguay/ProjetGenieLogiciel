@@ -9,8 +9,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
 Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
-Route::get('Accueil', [PersonnesController::class, 'index'])->name('register.register');
+Route::get('inscription', [RegisterController::class, 'index'])->name('register.register');
