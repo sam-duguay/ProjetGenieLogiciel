@@ -26,3 +26,5 @@ Route::post('register',
 
 Route::get('/connexion', 
 [LoginController::class, 'getLoginForm'])->name('login');
+Route::post('login',
+[LoginController::class, 'login']);
