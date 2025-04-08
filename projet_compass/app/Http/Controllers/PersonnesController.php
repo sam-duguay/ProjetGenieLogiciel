@@ -10,8 +10,10 @@ class PersonnesController extends Controller
 {
     public function fillprofile($id) {
         
-        return view('fillprofile.fillprofile', compact('id'));
+        return view('personne.registerPersonne', compact('id'));
     }
+
+   
 
     public function update(Request $request, $id) {
         try{            // dd($request);
