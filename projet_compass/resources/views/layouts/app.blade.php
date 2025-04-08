@@ -26,6 +26,7 @@
 </head>
 
     <body class="{{ $class ?? '' }}">
+   
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')

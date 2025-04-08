@@ -5,7 +5,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\PersonnesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\SuggestionController;
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
 Route::get('Accueil', [StudentsController::class, 'index'])->name('home');
@@ -28,3 +28,6 @@ Route::get('/connexion',
 [LoginController::class, 'getLoginForm'])->name('login');
 Route::post('login',
 [LoginController::class, 'login']);
+
+
+Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.indexNotification');
