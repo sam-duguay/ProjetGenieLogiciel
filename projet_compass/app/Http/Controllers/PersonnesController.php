@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PersonneRequest;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
 
@@ -13,7 +14,7 @@ class PersonnesController extends Controller
         return view('fillprofile.fillprofile', compact('id'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(PersonneRequest $request, $id) {
         try{            // dd($request);
             $personne = Personne::find($id);
 
