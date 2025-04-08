@@ -3,20 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PersonneRequest;
+use App\Models\Discipline;
+use App\Models\Programme;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
 
 class PersonnesController extends Controller
 {
     public function fillprofile($id) {
-        
-        return view('personne.registerPersonne', compact('id'));
+        $disciplines = Discipline::all();
+        $programmes = Programme::all();
+        return view('fillprofile.fillprofile', compact('id', 'disciplines', 'programmes'));
     }
 
-   
-
-    public function update(Request $request, $id) {
+    public function update(PersonneRequest $request, $id) {
         try{            // dd($request);
+
             $personne = Personne::find($id);
 
             if($personne)
