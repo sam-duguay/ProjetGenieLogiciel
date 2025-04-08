@@ -16,31 +16,31 @@ class RegisterController extends Controller
         return view('register.register');
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
         // dd($request);
         try {
-            $hashedPassword = Hash::make($request->mdp);
+            $hashedPassword = Hash::make($request->password);
 
             User::insert([
                 'email' => $request->email,
                 'password' => $hashedPassword
             ]);
 
-            Personne::insert(
-                [
-                    'nom' => $request->nom,
-                    'prenom' => $request->nom,
-                    'statut' => 'etudiant',
-                    'photo' => '',
-                    'age' => 0,
-                    'sexe' => '',
-                    'discipline_id' => 0,
-                    'programme_id' => 0
-                ]
-                );
-            // return response()->json([q
-                return redirect()->route('fillprofile')->with('message', 'Ajout avec succès, veuillez remplir votre profil');
+            $personne = new Personne();
+            $personne->nom = $request->nom;
+            $personne->prenom = $request->prenom;
+            $personne->statut = 'etudiant';
+            $personne->photo = '';
+            $personne->age = 0;
+            $personne->sexe = '';
+            $personne->discipline_id = 1;
+            $personne->programme_id = 1;
+
+            $personne->save();
+
+            // return response()->json([
+                return redirect()->route('fillprofile', $personne->id)->with('message', 'Ajout avec succès, veuillez remplir votre profil');
             // ]);
         } catch (Exception $e) {
             return response()->json([

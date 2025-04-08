@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
-@section('titre', 'Rencontre+ | S\'inscrire')
-
-@if(isset($errors) && $errors->any())
-<div class="alert alert-danger">
-    @foreach($errors->all() as $error)
-    <p>{{ $error }}</p>
-    @endforeach
-</div>
-@endif
+@section('app.name', 'Rencontre+ | S\'inscrire')
 
 <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
