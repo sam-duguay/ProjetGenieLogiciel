@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
         //Seeder pour table ayant aucune dépendances
         $this->call(DisciplineTableSeeder::class);
         $this->call(ProgrammeTableSeeder::class);
+        $this->call(LangueTableSeeder::class);
+        $this->call(HobbyTableSeeder::class);
+        $this->call(InteretTableSeeder::class);
 
 
         Personne::factory(10)->create();

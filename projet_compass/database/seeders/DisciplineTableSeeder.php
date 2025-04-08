@@ -13,6 +13,7 @@ class DisciplineTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('disciplines')->insert([
+            ['nom' => '00000'],
             ['nom' => '200B1'],
             ['nom' => '200B0'],
             ['nom' => '20011'],

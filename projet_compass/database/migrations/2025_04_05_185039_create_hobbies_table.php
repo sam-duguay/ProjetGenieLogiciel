@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('hobbies', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('categorie');
             $table->string('description');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

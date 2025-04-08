@@ -42,7 +42,7 @@ class Personne extends Model
     public function personnes () {
         return $this ->belongsToMany(Disponibilite::class, 'rencontres')
                      ->using(Rencontre::class)
-                     ->withPivot(['date', 'heure']);
+                     ->withPivot(['date']);
     }
 
     public function hobbies () {
