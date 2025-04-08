@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Exception;
 use App\Models\User;
-use App\Http\Requests\Api\RegisterRequest;
+use App\Models\Personne;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,26 +16,37 @@ class RegisterController extends Controller
         return view('register.register');
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        dd($request);
-        // try {
+        // dd($request);
+        try {
+            $hashedPassword = Hash::make($request->password);
 
-        //     $hashedPassword = Hash::make($request->password);
+            User::insert([
+                'email' => $request->email,
+                'password' => $hashedPassword
+            ]);
 
-        //     User::insert([
-        //         'email' => $request->email,
-        //         'password' => $hashedPassword
-        //     ]);
+            $personne = new Personne();
+            $personne->nom = $request->nom;
+            $personne->prenom = $request->prenom;
+            $personne->statut = 'etudiant';
+            $personne->photo = '';
+            $personne->age = 0;
+            $personne->sexe = '';
+            $personne->discipline_id = 1;
+            $personne->programme_id = 1;
 
-        //     return response()->json([
-        //         'status' => 200
-        //     ]);
-        // } catch (Exception $e) {
-        //     return response()->json([
-        //         'status' => 400,
-        //         'errors' => $e
-        //     ]);
-        // }
+            $personne->save();
+
+            // return response()->json([
+                return redirect()->route('fillprofile', $personne->id)->with('message', 'Ajout avec succès, veuillez remplir votre profil');
+            // ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $e
+            ]);
+        }
     }
 }

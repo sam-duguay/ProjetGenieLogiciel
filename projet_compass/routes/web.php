@@ -18,11 +18,17 @@ Route::get('/inscription', function () {
 
 // afficher page d'inscription
 Route::get('/inscription', 
-[RegisterController::class, 'getRegisterForm'])->name('register');
+[RegisterController::class, 'getRegisterForm'])->name('inscription');
 
 //envoyer le formulaire d'inscription
 Route::post('register', 
 [RegisterController::class, 'register'])->name('register');
+
+Route::get('fillprofile/{id}', 
+[PersonnesController::class, 'fillprofile'])->name('fillprofile');
+
+Route::patch('/personnes/{id}/update', 
+[PersonnesController::class, 'update'])->name('update');
 
 Route::get('/connexion', 
 [LoginController::class, 'getLoginForm'])->name('login');
