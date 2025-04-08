@@ -26,7 +26,15 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" class="form-control" name="nom" placeholder="Votre Nom" />
+                                            <input type="text" id="form3Example1c" class="form-control" name="prenom" placeholder="Votre nom" />
+                                            <label class="form-label" for="form3Example1c">Votre prenom</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                            <input type="text" id="form3Example1c" class="form-control" name="nom" placeholder="Votre prenom" />
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
                                         </div>
                                     </div>
@@ -54,14 +62,6 @@
                                             <label class="form-label" for="form3Example4cd">Confirmation du mot de passe</label>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label class="form-check-label" for="form2Example3">
-                       <a href="#!">Terms of service</a>
-                    </label>
-                  </div> -->
-
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                         <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Inscrivez Vous</button>
                                     </div>
