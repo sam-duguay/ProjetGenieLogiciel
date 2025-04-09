@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Personne;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,8 +19,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        
-
 
         //Seeder pour table ayant aucune dépendances
         $this->call(DisciplineTableSeeder::class);
@@ -31,9 +28,11 @@ class DatabaseSeeder extends Seeder
         $this->call(InteretTableSeeder::class);
         $this->call(PersonneTableSeeder::class);
 
+        //Les tables de liaisons doivent être après les tables sans liaisons
+        $this->call(HobbyPersonneTableSeeder::class);
+        $this->call(InteretPersonneTableSeeder::class);
+        $this->call(LanguePersonneTableSeeder::class);
 
 
-        //TRouver un moyen d'implémenter un id unique à chaque personne qui n'a pas été pris auparavant
-        //Personne::factory(10)->create();
     }
 }

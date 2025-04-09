@@ -27,10 +27,6 @@ class Personne extends Model
         return $this ->belongsTo(Discipline::class, 'discipline_id');
     }
 
-    // public function programmes () {
-    //     return $this ->belongsTo(Programme::class);
-    // }
-
     public function langues () {
         return $this ->belongsToMany(Langue::class);
     }

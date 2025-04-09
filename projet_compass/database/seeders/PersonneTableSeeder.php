@@ -29,7 +29,7 @@ class PersonneTableSeeder extends Seeder
                 'age' => $fake->numberBetween(16, 100),
                 'sexe' => $fake->randomElement(['male', 'femelle']),
                 'user_id' => $userId,
-                'discipline_id' => $fake->numberBetween(2, 36)
+                'discipline_id' => $fake->numberBetween(2, 35)
             ]);
         }
     }
