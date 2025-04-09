@@ -31,7 +31,7 @@ class PersonneFactory extends Factory
             'photo' => "",
             'age' => fake()->numberBetween(16, 100),
             'sexe' => fake()->randomElement(['male', 'femelle']),
-            'user_id' => ,
+            'user_id' =>,
             'discipline_id' => fake()->numberBetween(2, 36);
         ];
     }

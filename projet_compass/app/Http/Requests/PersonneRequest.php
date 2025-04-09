@@ -25,7 +25,7 @@ class PersonneRequest extends FormRequest
             'nom'=> 'required|max:100',
             'prenom'=> 'required|max:100',
             'statut'=> 'required',
-            'photo'=> 'required|url',
+            'photo'=> 'required',
             'age'=> 'required|numeric',
             'sexe'=> 'required'
         ];
@@ -40,7 +40,7 @@ class PersonneRequest extends FormRequest
             'prenom.required' => 'Le prénom est requis',
             'statut.required' => 'Le statut est requis',
             'photo.required' => 'La photo est requise',
-            'photo.url' => 'La photo doit être une URL valide',
+            // 'photo.url' => 'La photo doit être une URL valide',
             'age.numeric' => 'L\'âge doit être un nombre',
             'age.required' => 'L\'âge est requis',
             'sexe.required' => 'Le sexe est requis',

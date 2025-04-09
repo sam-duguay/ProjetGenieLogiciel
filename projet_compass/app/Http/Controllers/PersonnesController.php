@@ -18,7 +18,9 @@ class PersonnesController extends Controller
     }
 
     public function update(PersonneRequest $request, $id) {
-        try{            // dd($request);
+        dd($request);
+        try{             
+           
             $personne = Personne::find($id);
 
             if($personne)
@@ -42,10 +44,10 @@ class PersonnesController extends Controller
                 Log::error('Erreur lors du téléversement du fichier. ', [$e]);
             }
 
-            $request->photo = $nomFichier;
+            $personne->photo = $nomFichier;
 
             $personne->save();
-            return redirect()->route('/')->with('message', 'Enregistrement réussi');            
+            return redirect()->route('/')->with('message', 'Enregistrement réussi'. $personne->nom . "registered successfully");            
         }
         catch (\Throwable $e){
             // dd($request);

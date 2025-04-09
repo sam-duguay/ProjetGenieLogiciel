@@ -51,7 +51,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="photo" class="form-control" name="photo" placeholder="Url pour votre photo" />
+                                            <input type="file" id="photo" class="form-control" name="photo" placeholder="Telecharger votre photo" />
                                             <label class="form-label" for="form3Example3c">Url pour votre photo</label>
                                         </div>
                                     </div>
@@ -83,19 +83,6 @@
                                                 @endforeach
                                             </select>
                                             <label class="form-label select-label" for="discipline_id">Sélectionner votre Programme / Discipline</label>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
-                                        <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="programme_id" id="programme_id" class="form-select custom-select-style">
-                                                @foreach ($programmes as $programme )
-                                                    <option value="{{ $programme->id }}">
-                                                        {{ $programme->noProgramme}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            <label class="form-label select-label" for="programme_id">Sélectionner votre Programme</label>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
