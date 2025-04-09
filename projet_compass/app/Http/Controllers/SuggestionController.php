@@ -30,9 +30,10 @@ class SuggestionController extends Controller
 
         // $personne = $user->personne;
 
-        $user = User::first(); // Utiliser un utilisateur existant dans la base de données, ou tu peux en créer un factice
+        $user = User::first(); 
         $personne = $user ? $user->personne : null;
 
+      
         
         if (!$personne) {
             return view('suggestion.index')->with('message', 'Vous n\'avez pas encore de hobbies associés.');
@@ -41,18 +42,21 @@ class SuggestionController extends Controller
         
         $hobbies = $personne->hobbies;
 
+       
         if ($hobbies->isEmpty()) {
             return view('suggestion.index')->with('message', 'Vous n\'avez pas encore de hobbies associés.');
         }
 
         //whereHas vérifie dans personnes la relation "hobbies"
         $suggestedPersonnes = Personne::whereHas('hobbies', function ($query) use ($hobbies) {
-           
-            $query->whereIn('id', $hobbies->pluck('id'));
+            $query->whereIn('hobby_personne.hobby_id', $hobbies->pluck('id'));
         })
         ->where('id', '!=', $personne->id) 
         ->get();
 
+        foreach ($suggestedPersonnes as $suggestedPersonne) {
+            $suggestedPersonne->common_hobbies = $suggestedPersonne->hobbies->intersect($hobbies);
+        }
        
         return view('suggestion.index', ['suggestedPersonnes' => $suggestedPersonnes]);
 

@@ -37,12 +37,13 @@
                             <div class="font-icon-detail">
                                
                                 <i class="tim-icons icon-single-02"></i>
-                                <p>{{ $suggestedPersonne->name }}</p> 
+                                <p>{{ $suggestedPersonne->prenom }} {{ $suggestedPersonne->nom }}</p> 
+                                <p></p> 
                                 
                               
                                 <p class="text-muted">
-                                    @foreach($suggestedPersonne->hobbies as $hobby)
-                                        {{ $hobby->name }}
+                                    @foreach($suggestedPersonne->common_hobbies as $hobby)
+                                        {{ $hobby->nom }}<br>
                                     @endforeach
                                 </p>
                             </div>
