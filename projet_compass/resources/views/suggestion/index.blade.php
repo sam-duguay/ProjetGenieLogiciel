@@ -141,7 +141,7 @@
                             <p>icon-basket-simple</p>
                         </div>
                     </div>
-                    <!-- Ajoute d'autres éléments ici -->
+                   
                 </div>
             </div>
         </div>

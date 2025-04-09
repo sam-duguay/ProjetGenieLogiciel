@@ -30,4 +30,4 @@ Route::post('login',
 [LoginController::class, 'login']);
 
 
-Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.indexNotification');
+Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
