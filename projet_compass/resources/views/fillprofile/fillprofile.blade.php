@@ -77,12 +77,12 @@
                                         <div class="form-outline flex-fill mb-0 position-relative">
                                             <select name="discipline_id" id="discipline_id" class="form-select custom-select-style">
                                                 @foreach ($disciplines as $discipline )
-                                                    <option value="{{ $discipline->id }}">
-                                                        {{ $discipline->nom }}
+                                                    <option value="{{ $discipline->id}}">
+                                                        {{ $discipline->noProgramme." , ". $discipline->nom }}
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            <label class="form-label select-label" for="discipline_id">Sélectionner votre Discipline</label>
+                                            <label class="form-label select-label" for="discipline_id">Sélectionner votre Programme / Discipline</label>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
