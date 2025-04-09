@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Icons'), 'pageSlug' => 'icons'])
+@extends('layouts.app', ['page' => __('Suggestions de personnes'), 'pageSlug' => 'suggestions'])
 
 @section('content')
 
@@ -23,125 +23,38 @@
     }
 </style>
 
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h3 class="title">Suggestions</h3>
-                <p class="category">Hobbies</p>
+                <p class="category">Personnes avec des hobbies similaires</p>
             </div>
             <div class="card-body all-icons">
                 <div class="row">
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-alert-circle-exc"></i>
-                            <p>icon-alert-circle-exc</p>
+                    @foreach($suggestedPersonnes as $suggestedPersonne)
+                        <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                            <div class="font-icon-detail">
+                               
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>{{ $suggestedPersonne->name }}</p> 
+                                
+                              
+                                <p class="text-muted">
+                                    @foreach($suggestedPersonne->hobbies as $hobby)
+                                        {{ $hobby->name }}
+                                    @endforeach
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-align-center"></i>
-                            <p>icon-align-center</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-align-left-2"></i>
-                            <p>icon-align-left-2</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-app"></i>
-                            <p>icon-app</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-atom"></i>
-                            <p>icon-atom</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-attach-87"></i>
-                            <p>icon-attach-87</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-badge"></i>
-                            <p>icon-badge</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-bag-16"></i>
-                            <p>icon-bag-16</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-bank"></i>
-                            <p>icon-bank</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
-                    <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                        <div class="font-icon-detail">
-                            <i class="tim-icons icon-basket-simple"></i>
-                            <p>icon-basket-simple</p>
-                        </div>
-                    </div>
+                    @endforeach
+                    
                    
+                    @if($suggestedPersonnes->isEmpty())
+                        <div class="col-12">
+                            <p>Aucune suggestion disponible pour le moment.</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

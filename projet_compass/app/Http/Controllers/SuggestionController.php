@@ -16,9 +16,9 @@ class SuggestionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('suggestion.index');
+        return $this->getSuggestions($request);
     }
 
 
@@ -54,8 +54,6 @@ class SuggestionController extends Controller
         ->get();
 
        
-
-        
         return view('suggestion.index', ['suggestedPersonnes' => $suggestedPersonnes]);
 
     }
