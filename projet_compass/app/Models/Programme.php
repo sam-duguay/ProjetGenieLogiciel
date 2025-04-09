@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Models;
+//***SERA SUREMENT À SUPPRIMER***
 
-use Illuminate\Database\Eloquent\Model;
+// namespace App\Models;
 
-class Programme extends Model
-{
-    protected $fillable = [
-        'noProgramme'
-    ];
+// use Illuminate\Database\Eloquent\Model;
 
-    public function personnes(){
-        return $this->hasMany(Personne::class);
-    }
-}
+// class Programme extends Model
+// {
+//     protected $fillable = [
+//         'noProgramme'
+//     ];
+
+//     public function personnes(){
+//         return $this->hasMany(Personne::class);
+//     }
+// }
