@@ -22,7 +22,28 @@ class PersonneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nom'=> 'required|max:100',
+            'prenom'=> 'required|max:100',
+            'statut'=> 'required',
+            'photo'=> 'required|url',
+            'age'=> 'required|numeric',
+            'sexe'=> 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nom.required' => 'Le nom est requis',
+            'nom.max' => 'Le nom ne doit pas dépasser 100 caractères',
+            'prenom.max' => 'Le prénom ne doit pas dépasser 100 caractères',
+            'prenom.required' => 'Le prénom est requis',
+            'statut.required' => 'Le statut est requis',
+            'photo.required' => 'La photo est requise',
+            'photo.url' => 'La photo doit être une URL valide',
+            'age.numeric' => 'L\'âge doit être un nombre',
+            'age.required' => 'L\'âge est requis',
+            'sexe.required' => 'Le sexe est requis',
         ];
     }
 }

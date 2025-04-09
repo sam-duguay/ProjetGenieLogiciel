@@ -17,17 +17,16 @@ class Personne extends Model
         'photo',
         'age',
         'sexe',
-
         'discipline_id',
         'programme_id'
     ];
 
     public function disciplines () {
-        return $this ->belongsTo(Discipline::class);
+        return $this ->belongsTo(Discipline::class, 'discipline_id');
     }
 
     public function programmes () {
-        return $this ->belongsTo(Programme::class);
+        return $this ->belongsTo(Programme::class, 'programme_id');
     }
 
     public function langues () {
