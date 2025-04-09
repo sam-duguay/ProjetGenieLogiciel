@@ -14,8 +14,8 @@ class HobbyPersonneTableSeeder extends Seeder
     {
         DB::table('hobby_personne')->insert([
             [
-                'hobby_id' => 'Lecture',
-                'personne_id' => 'Explorer des livres, des articles ou des romans pour développer son imaginaire, acquérir des connaissances ou simplement se détendre.'
+                // 'hobby_id' => 
+                // 'personne_id' => 
             ],
         ]);
     }

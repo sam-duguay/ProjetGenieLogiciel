@@ -23,8 +23,6 @@ class PersonneFactory extends Factory
      */
     public function definition(): array
     {
-        //Pour avoir le même index pour les tables programmes et disciplines
-        $indexProgrammeDiscipline = fake()->numberBetween(2, 36);
 
         return [
             'nom' => fake()->unique()->firstName(),
@@ -33,8 +31,8 @@ class PersonneFactory extends Factory
             'photo' => "",
             'age' => fake()->numberBetween(16, 100),
             'sexe' => fake()->randomElement(['male', 'femelle']),
-            //'user_id' => $indexProgrammeDiscipline,
-            'discipline_id' => $indexProgrammeDiscipline
+            'user_id' => ,
+            'discipline_id' => fake()->numberBetween(2, 36);
         ];
     }
 
