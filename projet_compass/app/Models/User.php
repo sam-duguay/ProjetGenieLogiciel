@@ -45,6 +45,6 @@ class User extends Authenticatable
     }
 
     public function personne(){
-        return $this ->hasOne(Personne::class, 'foreign_key');
+        return $this ->hasOne(Personne::class, 'user_id');
     }
 }
