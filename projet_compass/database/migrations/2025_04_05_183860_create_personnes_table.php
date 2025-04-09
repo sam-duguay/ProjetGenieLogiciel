@@ -20,7 +20,9 @@ return new class extends Migration
             $table->integer(column: 'age');
             $table->string(column: 'sexe');
             $table->foreignId('discipline_id')->constrained('disciplines');
-            $table->foreignId('programme_id')->constrained('programmes');
+
+            $table->foreignId('user_id')->constrained('users');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

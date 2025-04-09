@@ -19,16 +19,18 @@ class Personne extends Model
         'sexe',
 
         'discipline_id',
-        'programme_id'
+        'programme_id',
+
+        'user_id'
     ];
 
     public function disciplines () {
         return $this ->belongsTo(Discipline::class);
     }
 
-    public function programmes () {
-        return $this ->belongsTo(Programme::class);
-    }
+    // public function programmes () {
+    //     return $this ->belongsTo(Programme::class);
+    // }
 
     public function langues () {
         return $this ->belongsToMany(Langue::class);
@@ -42,10 +44,14 @@ class Personne extends Model
     public function personnes () {
         return $this ->belongsToMany(Disponibilite::class, 'rencontres')
                      ->using(Rencontre::class)
-                     ->withPivot(['date', 'heure']);
+                     ->withPivot(['date']);
     }
 
     public function hobbies () {
         return $this ->belongsToMany(Hobby::class);
+    }
+
+    public function user(){
+        return $this ->belongsTo(User::class);
     }
 }

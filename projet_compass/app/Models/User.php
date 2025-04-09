@@ -43,4 +43,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function personne(){
+        return $this ->hasOne(Personne::class, 'foreign_key');
+    }
 }
