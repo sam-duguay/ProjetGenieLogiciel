@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         //Les tables de liaisons doivent être après les tables sans liaisons
         $this->call(HobbyPersonneTableSeeder::class);
         $this->call(InteretPersonneTableSeeder::class);
+        $this->call(LanguePersonneTableSeeder::class);
 
 
     }
