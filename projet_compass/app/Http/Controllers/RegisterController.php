@@ -22,12 +22,20 @@ class RegisterController extends Controller
         try {
             $hashedPassword = Hash::make($request->password);
 
-            User::insert([
-                'email' => $request->email,
-                'password' => $hashedPassword
-            ]);
+            $user = new User();
+
+            $user->email = $request->email;
+            $user->password = $request->password;
+
+            $user->save();
+
+            // User::insert([
+            //     'email' => $request->email,
+            //     'password' => $hashedPassword
+            // ]);
 
             $personne = new Personne();
+            $personne->user_id = $user->id;
             $personne->nom = $request->nom;
             $personne->prenom = $request->prenom;
             $personne->statut = 'etudiant';
