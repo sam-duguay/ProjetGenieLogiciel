@@ -25,7 +25,7 @@ class SuggestionController extends Controller
 
     public function getSuggestions(Request $request)
     {
-        Log::debug("Début de la fonction getSuggestions");
+        
         // $user = Auth::user();
 
         // $personne = $user->personne;
