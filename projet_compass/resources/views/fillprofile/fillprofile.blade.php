@@ -21,7 +21,7 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Profile</p>
 
-                                <form class="mx-1 mx-md-4" name="register" method="post" action="{{ route('update', $id) }}" id="register">
+                                <form class="mx-1 mx-md-4" method="post" action="{{ route('update', $id) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -91,7 +91,7 @@
                                             <select name="programme_id" id="programme_id" class="form-select custom-select-style">
                                                 @foreach ($programmes as $programme )
                                                     <option value="{{ $programme->id }}">
-                                                        {{ $programme->noProgramme }}
+                                                        {{ $programme->noProgramme}}
                                                     </option>
                                                 @endforeach
                                             </select>
