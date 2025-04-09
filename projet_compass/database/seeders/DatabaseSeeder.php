@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InteretTableSeeder::class);
 
 
-        Personne::factory(10)->create();
+        //TRouver un moyen d'implémenter un id unique à chaque personne qui n'a pas été pris auparavant
+        //Personne::factory(10)->create();
     }
 }
