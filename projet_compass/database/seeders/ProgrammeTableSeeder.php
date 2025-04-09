@@ -13,6 +13,7 @@ class ProgrammeTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('programmes')->insert([
+            ['noProgramme' => 'Aucun programme'],
             ['noProgramme' => 'Tremplin DEC'],
             ['noProgramme' => 'Programmes préuniversitaires'],
             ['noProgramme' => 'Sciences de la nature (200B1 pour ceux débutant à l\'automne 2024)'],
