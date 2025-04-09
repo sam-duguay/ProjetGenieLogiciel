@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class RegisterRequest extends FormRequest
 {
@@ -22,26 +24,32 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => 'required|max:50',
-            'prenom' => 'required|max:50',
-            'email' => 'required|email',
-            'mdp' => 'min:6|required_with:mdp_confirmation|same:mdp_confirmation',
-            'mdp_confirmation' => 'min:6'
+            'nom' => 'required',
+            'prenom' => 'required',
+            'email'=> 'required|email',
+            'password'=> 'min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'min:6'
         ];
+    }
+
+    public function failedValidation(Validator $validator) {
+        throw new HttpResponseException(response()->json([
+            'status'=> 400,
+            'errors' => $validator->errors()
+        ])); 
     }
 
     public function messages () {
         return [
             'nom.required'=> 'Un nom est requis',
-            'nom.max'=> 'Le nom doit contenir au plus 50 caracteres',
-            'prenom.required'=> 'Un nom est requis',
-            'prenom.max'=> 'Le nom doit contenir au plus 50 caracteres',
+            'prenom.required'=> 'Un prenom est requis',
             'email.required'=> 'Une adresse courriel est requis',
             'email.email'=> "L'adresse courriel est invalide",
-            'mdp.min'=> "Le mot de passe doit etre compose d'au moins 6 caracteres",
-            'mdp.required_with'=> 'veuillez confirmer le mot de passe',
-            'mdp.same'=> 'Le mot de passe est la confirmation de mot de passe doit etre pareil',
-            'mdp_confirmation.min'=> 'La confirmation de mot de passe doit contenir le meme nombre de caracteres que le mot de passe'
+            'password.min'=> "Le mot de passe doit etre compose d'au moins 6 caracteres",
+            'password.required_with'=> 'veuillez confirmer le mot de passe',
+            'password.same'=> 'Le mot de passe est la confirmation de mot de passe doit etre pareil',
+            'password_confirmation.min'=> 'La confirmation de mot de passe doit contenir le meme nombre de caracteres que le mot de passe'
         ];
     }
+
 }
