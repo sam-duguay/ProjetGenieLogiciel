@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(LangueTableSeeder::class);
         $this->call(HobbyTableSeeder::class);
         $this->call(InteretTableSeeder::class);
+        $this->call(PersonneTableSeeder::class);
+
 
 
         //TRouver un moyen d'implémenter un id unique à chaque personne qui n'a pas été pris auparavant
