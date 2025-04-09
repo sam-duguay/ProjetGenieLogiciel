@@ -19,7 +19,6 @@ class PersonnesController extends Controller
 
     public function update(PersonneRequest $request, $id) {
         try{            // dd($request);
-
             $personne = Personne::find($id);
 
             if($personne)
@@ -33,17 +32,17 @@ class PersonnesController extends Controller
                 $personne->discipline_id = $request->discipline_id;
                 $personne->programme_id  = $request->programme_id;
             }
-            // $fichier = $request->file('image');
-            // $nomFichier = str_replace(' ', '_', $jeu->nom) . '-' . uniqid() . '-' . $fichier->extension(); 
+            $fichier = $request->file('image');
+            $nomFichier = str_replace(' ', '_', $request->photo) . '-' . uniqid() . '-' . $fichier->extension(); 
 
-            // try {
-            //     $request->image->move(public_path('img/jeux'), $nomFichier);
-            // }
-            // catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
-            //     Log::error('Erreur lors du téléversement du fichier. ', [$e]);
-            // }
+            try {
+                $request->photo->move(public_path('img/personnes'), $nomFichier);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+                Log::error('Erreur lors du téléversement du fichier. ', [$e]);
+            }
 
-            // $jeu->image = $nomFichier;
+            $request->photo = $nomFichier;
 
             $personne->save();
             return redirect()->route('/')->with('message', 'Enregistrement réussi');            
