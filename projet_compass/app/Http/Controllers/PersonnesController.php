@@ -13,48 +13,80 @@ class PersonnesController extends Controller
 {
     public function fillprofile($id) {
         $disciplines = Discipline::all();
-        $programmes = Programme::all();
-        return view('fillprofile.fillprofile', compact('id', 'disciplines', 'programmes'));
+       
+        return view('fillprofile.fillprofile', compact('id', 'disciplines'));
     }
-
-    public function update(PersonneRequest $request, $id) {
-        dd($request);
-        try{             
+    //code de base
+// dd($request);
+        // try{             
            
-            $personne = Personne::find($id);
+        //     $personne = Personne::find($id);
 
-            if($personne)
-            {
-                $personne->nom = $request->nom;
-                $personne->prenom = $request->prenom;
-                $personne->statut = $request->statut;
-                $personne->photo = $request->photo;
-                $personne->age = $request->age;
-                $personne->sexe  = $request->sexe;
-                $personne->discipline_id = $request->discipline_id;
-                $personne->programme_id  = $request->programme_id;
-            }
-            $fichier = $request->file('image');
-            $nomFichier = str_replace(' ', '_', $request->photo) . '-' . uniqid() . '-' . $fichier->extension(); 
+        //     if($personne)
+        //     {
+        //         $personne->nom = $request->nom;
+        //         $personne->prenom = $request->prenom;
+        //         $personne->statut = $request->statut;
+        //         $personne->photo = $request->photo;
+        //         $personne->age = $request->age;
+        //         $personne->sexe  = $request->sexe;
+        //         $personne->discipline_id = $request->discipline_id;
+        //         // $personne->programme_id  = $request->programme_id;
+        //     }
+        //     $fichier = $request->file('photo');
+        //     $nomFichier = 'photo_' . uniqid() . '.' . $fichier->getClientOriginalExtension();
+
+        //     //$nomFichier = str_replace(' ', '_', $request->photo) . '-' . uniqid() . '-' . $fichier->extension(); 
+
+        //     try {
+        //         $request->photo->move(public_path('img/personnes'), $nomFichier);
+        //     }
+        //     catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+        //         Log::error('Erreur lors du téléversement du fichier. ', [$e]);
+        //     }
+
+        //     $personne->photo = $nomFichier;
+
+        //     $personne->save();
+        //     return redirect()->route('/')->with('message', 'Enregistrement réussi'. $personne->nom . "registered successfully");            
+        // }
+        // catch (\Throwable $e){
+        //     // dd($request);
+
+        //     // storage/logs
+        //     Log::debug($e);
+        // }
+    public function update(PersonneRequest $request, $id) {
+        
+        $personne = Personne::find($id);
+
+        if($personne) {
+        $personne->nom = $request->nom;
+        $personne->prenom = $request->prenom;
+        $personne->statut = $request->statut;
+        $personne->age = $request->age;
+        $personne->sexe  = $request->sexe;
+        $personne->discipline_id = $request->discipline_id;
+
+        if ($request->hasFile('photo')) {
+            $fichier = $request->file('photo');
+            $nomFichier = 'photo_' . uniqid() . '.' . $fichier->getClientOriginalExtension();
 
             try {
-                $request->photo->move(public_path('img/personnes'), $nomFichier);
+                $fichier->move(public_path('img/personnes'), $nomFichier);
+                $personne->photo = $nomFichier;
+            } catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+                Log::error('Erreur lors du téléversement du fichier : ', [$e]);
             }
-            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
-                Log::error('Erreur lors du téléversement du fichier. ', [$e]);
-            }
-
-            $personne->photo = $nomFichier;
-
-            $personne->save();
-            return redirect()->route('/')->with('message', 'Enregistrement réussi'. $personne->nom . "registered successfully");            
+        }elseif (!$personne->photo) {
+            $personne->photo = 'default.png';
         }
-        catch (\Throwable $e){
-            // dd($request);
 
-            // storage/logs
-            Log::debug($e);
-        }
+        $personne->save();
+
+        return redirect()->route('home')->with('message', 'Enregistrement réussi : ' . $personne->nom);
+}
+
     }
 
 }
