@@ -18,7 +18,7 @@ class PersonnesController extends Controller
     }
 
     public function update(PersonneRequest $request, $id) {
-        try{            // dd($request);
+        try{            
             $personne = Personne::find($id);
 
             if($personne)
@@ -31,8 +31,8 @@ class PersonnesController extends Controller
                 $personne->sexe  = $request->sexe;
                 $personne->discipline_id = $request->discipline_id;
                 $personne->programme_id  = $request->programme_id;
+                $fichier = $request->file('photo');
             }
-            $fichier = $request->file('image');
             $nomFichier = str_replace(' ', '_', $request->photo) . '-' . uniqid() . '-' . $fichier->extension(); 
 
             try {

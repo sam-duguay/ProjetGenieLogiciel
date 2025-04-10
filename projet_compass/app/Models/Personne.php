@@ -17,10 +17,8 @@ class Personne extends Model
         'photo',
         'age',
         'sexe',
-
         'discipline_id',
         'programme_id',
-
         'user_id'
     ];
 
