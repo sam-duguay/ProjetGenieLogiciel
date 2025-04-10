@@ -13,8 +13,7 @@ class PersonnesController extends Controller
 {
     public function fillprofile($id) {
         $disciplines = Discipline::all();
-        $programmes = Programme::all();
-        return view('fillprofile.fillprofile', compact('id', 'disciplines', 'programmes'));
+        return view('fillprofile.fillprofile', compact('id', 'disciplines'));
     }
 
     public function update(PersonneRequest $request, $id) {
