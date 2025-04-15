@@ -23,16 +23,9 @@ class RegisterController extends Controller
             $hashedPassword = Hash::make($request->password);
 
             $user = new User();
-
             $user->email = $request->email;
             $user->password = $request->password;
-
             $user->save();
-
-            // User::insert([
-            //     'email' => $request->email,
-            //     'password' => $hashedPassword
-            // ]);
 
             $personne = new Personne();
             $personne->user_id = $user->id;
@@ -46,9 +39,7 @@ class RegisterController extends Controller
 
             $personne->save();
 
-            // return response()->json([
-                return redirect()->route('fillprofile', $personne->id)->with('message', 'Ajout avec succès, veuillez remplir votre profil');
-            // ]);
+            return redirect()->route('fillprofile', $personne->id)->with('message', 'Ajout avec succès, veuillez remplir votre profil');
         } catch (Exception $e) {
             return response()->json([
                 'status' => 400,

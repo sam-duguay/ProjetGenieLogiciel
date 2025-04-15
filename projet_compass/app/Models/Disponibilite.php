@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Disponibilite extends Model
 {
     protected $fillable = [
-        'jourSemaine',
+        'date',
         'heure'
     ];
 
@@ -22,4 +22,9 @@ class Disponibilite extends Model
     //                  ->using(Rencontre::class)
     //                  ->withPivot(['date', 'heure']);
     // }
+
+    public function rencontres()
+    {
+        return $this->hasMany(Rencontre::class);
+    }
 }

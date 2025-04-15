@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\PersonnesController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
@@ -32,5 +33,9 @@ Route::patch('/personnes/{id}/update',
 
 Route::get('/connexion', 
 [LoginController::class, 'getLoginForm'])->name('login');
+
 Route::post('login',
-[LoginController::class, 'login']);
+[LoginController::class, 'login'])->name('connexion');
+
+Route::get('/logout',
+[LogOutController::class, 'logout'])->name('logout');

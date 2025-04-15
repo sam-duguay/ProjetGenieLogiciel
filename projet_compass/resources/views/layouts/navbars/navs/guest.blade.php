@@ -10,7 +10,7 @@
             </div>
             <a class="navbar-brand" href="#">{{ $page ?? '' }}</a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{ route('register') }}" class="nav-link">
+                    <a href="{{ route('inscription') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ __('Register') }}
                     </a>
                 </li>

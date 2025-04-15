@@ -21,7 +21,7 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
-                                <form class="mx-1 mx-md-4" name="login" method="post" action="{{ url('/login') }}" id="login">
+                                <form class="mx-1 mx-md-4" name="login" method="post" action="{{ route('connexion') }}" id="login">
                                     @csrf
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
