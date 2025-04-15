@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
-@section('app.name', 'Rencontre+ | S\'inscrire')
+@section('titre', 'Rencontre+ | Profile')
+
+@if(isset($errors) && $errors->any())
+<div class="alert alert-danger">
+    @foreach($errors->all() as $error)
+    <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif
 
 <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
@@ -11,62 +19,77 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
-                                <form class="mx-1 mx-md-4" name="register" method="post" action="{{ route('register') }}" id="register">
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Profile : {{ $personne->nom }}</p>
+                              @if(isset($personne))  
+                                <form class="mx-1 mx-md-4" method="post" action="{{ route('update', $id) }}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PATCH')
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="nom" name="nom" class="form-control" />
+                                            <input type="text" id="form3Example1c" class="form-control" name="nom" value="{{ $personne->nom }}"/>
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
                                         </div>
                                     </div>
-
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="prenom" name="prenom" class="form-control" />
-                                            <label class="form-label" for="form3Example1c">Votre prenom</label>
+                                            <input type="text" id="form3Example1c" class="form-control" name="prenom" value="{{ $personne->prenom }}" />
+                                            <label class="form-label" for="form3Example1c">Votre Prenom</label>
                                         </div>
                                     </div>
-
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="email" id="email" name="email" class="form-control" />
-                                            <label class="form-label" for="form3Example3c">Votre adresse courriel</label>
+                                            <select name="statut" id="statut"class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                <option value="professeur">professeur</option>
+                                                <option value="etudiant">etudiant</option>
+                                            </select>
+                                            <label class="form-label" for="form3Example1c">Sélectionner votre statut</label>
                                         </div>
                                     </div>
-
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="password" id="password" name="password" class="form-control" />
-                                            <label class="form-label" for="form3Example4c">Votre mot de passe</label>
+                                            <input type="file" id="photo" class="form-control" name="photo" value="{{ $personne->photo  }}" />
+                                            <label class="form-label" for="form3Example3c">Url pour votre photo</label>
                                         </div>
                                     </div>
-
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                        {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" />
-                                            <label class="form-label" for="form3Example4cd">Veuillez confirmer votre mot de passe</label>
+                                            <input type="number" id="age" class="form-control" name="age" value="{{ $personne->age }}" />
+                                            <label class="form-label" for="form3Example3c"> Votre age</label>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label class="form-check-label" for="form2Example3">
-                       <a href="#!">Terms of service</a>
-                    </label>
-                  </div> -->
-
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
+                                        <div class="form-outline flex-fill mb-0 position-relative">
+                                            <select name="sexe" id="sexe" class="form-select custom-select-style">
+                                                <option value="femelle">femelle</option>
+                                                <option value="male">male</option>
+                                            </select>
+                                            <label class="form-label select-label" for="sexe">Sélectionner votre sexe</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
+                                        <div class="form-outline flex-fill mb-0 position-relative">
+                                            <select name="discipline_id" id="discipline_id" class="form-select custom-select-style">
+                                                @foreach ($disciplines as $discipline )
+                                                    <option value="{{ $discipline->id}}">
+                                                        {{ $discipline->noProgramme." , ". $discipline->nom }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <label class="form-label select-label" for="discipline_id">Sélectionner votre Programme / Discipline</label>
+                                        </div>
+                                    </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Inscrivez Vous</button>
+                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Soummettre</button>
                                     </div>
                                 </form>
-
+                                @endif
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 

@@ -36,6 +36,7 @@ class RegisterController extends Controller
             $personne->age = 0;
             $personne->sexe = '';
             $personne->discipline_id = 1;
+
             $personne->save();
 
             return redirect()->route('fillprofile', $personne->id)->with('message', 'Ajout avec succès, veuillez remplir votre profil');

@@ -22,7 +22,7 @@ class Personne extends Model
     ];
 
     public function disciplines () {
-        return $this ->belongsTo(Discipline::class);
+        return $this ->belongsTo(Discipline::class, 'discipline_id');
     }
 
     public function langues () {
