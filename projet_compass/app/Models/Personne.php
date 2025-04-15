@@ -18,7 +18,6 @@ class Personne extends Model
         'age',
         'sexe',
         'discipline_id',
-        'programme_id',
         'user_id'
     ];
 
