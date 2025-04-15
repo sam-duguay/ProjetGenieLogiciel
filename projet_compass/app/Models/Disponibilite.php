@@ -8,23 +8,16 @@ class Disponibilite extends Model
 {
     protected $fillable = [
         'date',
-        'heure'
+        'heure',
+        'personne_id'
     ];
 
     public function personnes () {
-        return $this ->belongsToMany(Personne::class, 'rencontres')
-                     ->using(Rencontre::class)
-                     ->withPivot(['date']);
+        return $this ->belongsTo(Personne::class);
     }
 
-    // public function personnes () {
-    //     return $this ->belongsToMany(Personne::class, 'rencontres')
-    //                  ->using(Rencontre::class)
-    //                  ->withPivot(['date', 'heure']);
-    // }
-
-    public function rencontres()
-    {
-        return $this->hasMany(Rencontre::class);
+    public function rencontre(){
+        return $this->hasOne(Rencontre::class, 'rencontre_id');
     }
+
 }

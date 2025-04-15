@@ -13,19 +13,10 @@ return new class extends Migration
     {
         Schema::create('rencontres', function (Blueprint $table) {
             $table->id();
-
-            //$table->foreignId('disponibilite_id');
-            //$table->foreignId('personne_id');
-
-            $table->unsignedBigInteger('personne1_id');
-            $table->unsignedBigInteger('personne2_id');
-            $table->unsignedBigInteger('disponibilite_id');
+            $table->foreignId('disponibilite_id')->constrained('disponibilites');
+            $table->foreignId('personne_id')->constrained('personnes');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-
-            $table->foreign('personne1_id')->references('id')->on('personnes');
-            $table->foreign('personne2_id')->references('id')->on('personnes');
-            $table->foreign('disponibilite_id')->references('id')->on('disponibilites');
         });
     }
 

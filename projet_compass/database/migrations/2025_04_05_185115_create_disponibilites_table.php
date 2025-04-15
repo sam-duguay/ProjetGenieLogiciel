@@ -31,6 +31,7 @@ return new class extends Migration
                 '21h00',
                 '22h00'
             ])->default('8h00');
+            $table->foreignId('personne_id')->constrained('personnes');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

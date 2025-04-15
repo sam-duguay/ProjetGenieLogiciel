@@ -9,19 +9,13 @@ class Rencontre extends Pivot
 {
     //C'est une table de pivot avec champs, les relations entre les tables sont donc différentes
     protected $fillable = [
-        'personne1_id',
-        'personne2_id',
-        'disponiblite_id'
+        'disponibilite_id',
+        'personne_id'
     ];
 
-    public function personne1()
+    public function personne()
     {
-        return $this->belongsTo(Personne::class, 'personne1_id');
-    }
-
-    public function personne2()
-    {
-        return $this->belongsTo(Personne::class, 'personne2_id');
+        return $this->belongsTo(Personne::class);
     }
 
     public function disponibilite()
