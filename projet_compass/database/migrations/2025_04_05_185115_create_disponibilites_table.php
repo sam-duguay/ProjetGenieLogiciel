@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('disponibilites', function (Blueprint $table) {
             $table->id();
-            $table->enum('jourSemaine', ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'])->default('Lundi');
+            $table->date('date');
             $table->enum('heure', [
                 '8h00',
                 '9h00',

@@ -37,10 +37,23 @@ class Personne extends Model
     }
 
     //Ne fonctionnera pt pas, car il y a une table de pivot avec des champs additionnels
-    public function personnes () {
-        return $this ->belongsToMany(Disponibilite::class, 'rencontres')
-                     ->using(Rencontre::class)
-                     ->withPivot(['date']);
+    // public function personnes () {
+    //     return $this ->belongsToMany(Disponibilite::class, 'rencontres')
+    //                  ->using(Rencontre::class)
+    //                  ->withPivot(['date']);
+    // }
+
+    public function rencontresPersonne1(){
+        return $this->hasMany(Rencontre::class, 'personne1_id');
+    }
+
+    public function rencontresPersonne2(){
+        return $this->hasMany(Rencontre::class, 'personne2_id');
+    }
+
+    //Redonne toutes les rencontres de la personne en question
+    public function toutesLesRencontres(){
+        return $this->rencontresPersonne1->merge($this->rencontresPersonne2);
     }
 
     public function hobbies () {
