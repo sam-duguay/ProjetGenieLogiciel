@@ -13,13 +13,11 @@ class PersonnesController extends Controller
 {
     public function fillprofile($id) {
         $disciplines = Discipline::all();
-        $programmes = Programme::all();
-        return view('fillprofile.fillprofile', compact('id', 'disciplines', 'programmes'));
+        return view('fillprofile.fillprofile', compact('id', 'disciplines'));
     }
 
     public function update(PersonneRequest $request, $id) {
-        try{            // dd($request);
-
+        try{            
             $personne = Personne::find($id);
 
             if($personne)
@@ -32,18 +30,18 @@ class PersonnesController extends Controller
                 $personne->sexe  = $request->sexe;
                 $personne->discipline_id = $request->discipline_id;
                 $personne->programme_id  = $request->programme_id;
+                $fichier = $request->file('photo');
             }
-            // $fichier = $request->file('image');
-            // $nomFichier = str_replace(' ', '_', $jeu->nom) . '-' . uniqid() . '-' . $fichier->extension(); 
+            $nomFichier = str_replace(' ', '_', $request->photo) . '-' . uniqid() . '-' . $fichier->extension(); 
 
-            // try {
-            //     $request->image->move(public_path('img/jeux'), $nomFichier);
-            // }
-            // catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
-            //     Log::error('Erreur lors du téléversement du fichier. ', [$e]);
-            // }
+            try {
+                $request->photo->move(public_path('img/personnes'), $nomFichier);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+                Log::error('Erreur lors du téléversement du fichier. ', [$e]);
+            }
 
-            // $jeu->image = $nomFichier;
+            $request->photo = $nomFichier;
 
             $personne->save();
             return redirect()->route('/')->with('message', 'Enregistrement réussi');            
