@@ -19,22 +19,22 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Profile</p>
-
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Profile : {{ $personne->nom }}</p>
+                              @if(isset($personne))  
                                 <form class="mx-1 mx-md-4" method="post" action="{{ route('update', $id) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" class="form-control" name="nom" placeholder="Votre Nom" />
+                                            <input type="text" id="form3Example1c" class="form-control" name="nom" value="{{ $personne->nom }}"/>
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" class="form-control" name="prenom" placeholder="Votre Prenom" />
+                                            <input type="text" id="form3Example1c" class="form-control" name="prenom" value="{{ $personne->prenom }}" />
                                             <label class="form-label" for="form3Example1c">Votre Prenom</label>
                                         </div>
                                     </div>
@@ -51,14 +51,14 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="file" id="photo" class="form-control" name="photo" placeholder="Telecharger votre photo" />
+                                            <input type="file" id="photo" class="form-control" name="photo" value="{{ $personne->photo  }}" />
                                             <label class="form-label" for="form3Example3c">Url pour votre photo</label>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="number" id="age" class="form-control" name="age" placeholder="Votre age" />
+                                            <input type="number" id="age" class="form-control" name="age" value="{{ $personne->age }}" />
                                             <label class="form-label" for="form3Example3c"> Votre age</label>
                                         </div>
                                     </div>
@@ -89,6 +89,7 @@
                                         <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Soummettre</button>
                                     </div>
                                 </form>
+                                @endif
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
