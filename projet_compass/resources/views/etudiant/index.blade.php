@@ -87,6 +87,8 @@
                         <p>{{ __('Dashboard') }}</p>
                         </a>
                     </li>
+
+                    
                     <li>
 
                         <a data-toggle="collapse" href="{{ route('suggestion.index') }}" aria-expanded="true">
@@ -160,7 +162,11 @@
         </div>
 
         <div class="main-panel">
+
+        
             <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+
+            
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
                         <div class="navbar-toggle d-inline">

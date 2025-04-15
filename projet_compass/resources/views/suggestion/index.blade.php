@@ -62,4 +62,45 @@
     </div>
 </div>
 
+<hr style="border: 2px solid #9B59B6; margin: 20px 0;">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="title">Suggestions</h3>
+                <p class="category">Personnes avec des interets similaires</p>
+            </div>
+            <div class="card-body all-icons">
+                <div class="row">
+                    @foreach($suggestedPersonnesInteret as $suggestedPersonneInteret)
+                        <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                            <div class="font-icon-detail">
+                               
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>{{ $suggestedPersonneInteret->prenom }} {{ $suggestedPersonneInteret->nom }}</p> 
+                                <p></p> 
+                                
+                              
+                                <p class="text-muted">
+                                    @foreach($suggestedPersonneInteret->common_interets as $interet)
+                                        {{ $interet->nom }}<br>
+                                    @endforeach
+                                </p>
+                            </div>
+                        </div>
+                    @endforeach
+                    
+                   
+                    @if($suggestedPersonnesInteret->isEmpty())
+                        <div class="col-12">
+                            <p>Aucune suggestion disponible pour le moment.</p>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection

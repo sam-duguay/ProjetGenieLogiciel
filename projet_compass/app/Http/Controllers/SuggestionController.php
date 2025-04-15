@@ -18,7 +18,16 @@ class SuggestionController extends Controller
      */
     public function index(Request $request)
     {
-        return $this->getSuggestions($request);
+        // return $this->getSuggestions($request);
+
+        $hobbiesSuggestions = $this->getSuggestions($request);
+
+        $interestSuggestions = $this->getSuggestionsInteret($request);
+
+        return view('suggestion.index', [
+            'hobbiesSuggestions' => $hobbiesSuggestions,
+            'interestSuggestions' => $interestSuggestions,
+        ]);
     }
 
 
@@ -59,6 +68,48 @@ class SuggestionController extends Controller
         }
        
         return view('suggestion.index', ['suggestedPersonnes' => $suggestedPersonnes]);
+
+    }
+
+    public function getSuggestionsInteret(Request $request)
+    {
+        
+        // $user = Auth::user();
+
+        // $personne = $user->personne;
+
+        $user = User::first(); 
+        $personne = $user ? $user->personne : null;
+
+    
+        
+        if (!$personne) {
+            return view('suggestion.index')->with('message', 'Vous n\'avez pas encore d\'interet associés.');
+        }
+
+        
+        $interets = $personne->interets;
+
+        
+
+        if ($interets->isEmpty()) {
+            return view('suggestion.index')->with('message', 'Vous n\'avez pas encore d\'interet associés.');
+        }
+
+        //whereHas vérifie dans personnes la relation "hobbies"
+        $suggestedPersonnesInteret = Personne::whereHas('interets', function ($query) use ($interets) {
+            $query->whereIn('interet_personne.interet_id', $interets->pluck('id'));
+        })
+        ->where('id', '!=', $personne->id) 
+        ->get();
+
+        foreach ($suggestedPersonnesInteret as $suggestedPersonneInteret) {
+            $suggestedPersonneInteret->common_interets = $suggestedPersonneInteret->interets->intersect($interets);
+        }
+
+        
+       
+        return view('suggestion.index', ['suggestedPersonnes' => $suggestedPersonnesInteret]);
 
     }
 

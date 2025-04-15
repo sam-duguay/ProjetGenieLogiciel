@@ -23,6 +23,8 @@
     <!-- CSS -->
     <link href="{{ asset('asset/css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />
     <link href="{{ asset('asset/css/theme.css') }}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
     <body class="{{ $class ?? '' }}">
