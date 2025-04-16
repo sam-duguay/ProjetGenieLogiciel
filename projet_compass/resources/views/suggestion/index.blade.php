@@ -23,7 +23,6 @@
     }
 </style>
 
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -33,26 +32,21 @@
             </div>
             <div class="card-body all-icons">
                 <div class="row">
-                    @foreach($suggestedPersonnes as $suggestedPersonne)
-                        <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                            <div class="font-icon-detail">
-                               
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ $suggestedPersonne->prenom }} {{ $suggestedPersonne->nom }}</p> 
-                                <p></p> 
-                                
-                              
-                                <p class="text-muted">
-                                    @foreach($suggestedPersonne->common_hobbies as $hobby)
-                                        {{ $hobby->nom }}<br>
-                                    @endforeach
-                                </p>
+                    @if(isset($suggestedPersonnes) && count($suggestedPersonnes) > 0)
+                        @foreach($suggestedPersonnes as $suggestedPersonne)
+                            <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                                <div class="font-icon-detail">
+                                    <i class="tim-icons icon-single-02"></i>
+                                    <p>{{ $suggestedPersonne->prenom }} {{ $suggestedPersonne->nom }}</p>
+                                    <p class="text-muted">
+                                        @foreach($suggestedPersonne->common_hobbies as $hobby)
+                                            {{ $hobby->nom }}<br>
+                                        @endforeach
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                    
-                   
-                    @if($suggestedPersonnes->isEmpty())
+                        @endforeach
+                    @else
                         <div class="col-12">
                             <p>Aucune suggestion disponible pour le moment.</p>
                         </div>
@@ -74,33 +68,25 @@
             </div>
             <div class="card-body all-icons">
                 <div class="row">
-                @if(isset($suggestedPersonnesInterets) && !empty($suggestedPersonnesInterets))
-                    @foreach($suggestedPersonnesInterets as $suggestedPersonneInteret)
-                        <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                            <div class="font-icon-detail">
-                               
-                            <i class="tim-icons icon-single-02"></i>
-                                <p>{{ $suggestedPersonneInteret->prenom }} {{ $suggestedPersonneInteret->nom }}</p> 
-                                <p></p> 
-                                
-                              
-                                <p class="text-muted">
-                                    @foreach($suggestedPersonneInteret->common_interets as $interet)
-                                        {{ $interet->nom }}<br>
-                                    @endforeach
-                                </p>
+                    @if(isset($suggestedPersonnesInterets) && count($suggestedPersonnesInterets) > 0)
+                        @foreach($suggestedPersonnesInterets as $suggestedPersonneInteret)
+                            <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                                <div class="font-icon-detail">
+                                    <i class="tim-icons icon-single-02"></i>
+                                    <p>{{ $suggestedPersonneInteret->prenom }} {{ $suggestedPersonneInteret->nom }}</p>
+                                    <p class="text-muted">
+                                        @foreach($suggestedPersonneInteret->common_interets as $interet)
+                                            {{ $interet->nom }}<br>
+                                        @endforeach
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                    
-                   
-                    @if($suggestedPersonnesInterets->isEmpty())
+                        @endforeach
+                    @else
                         <div class="col-12">
                             <p>Aucune suggestion disponible pour le moment.</p>
                         </div>
                     @endif
-
-                @endif
                 </div>
             </div>
         </div>
