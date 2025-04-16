@@ -6,6 +6,7 @@ use App\Http\Controllers\PersonnesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DispoController;
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
@@ -39,3 +40,5 @@ Route::post('login',
 
 Route::get('/logout',
 [LogOutController::class, 'logout'])->name('logout');
+
+Route::get('/disponibilites', DispoController::class)->name('disponibilites'); 
