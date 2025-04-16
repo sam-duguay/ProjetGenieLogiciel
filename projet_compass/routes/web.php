@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\PersonnesController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\DispoController;
+
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
 Route::get('Accueil', [StudentsController::class, 'index'])->name('home');
@@ -32,8 +35,14 @@ Route::patch('/personnes/{id}/update',
 
 Route::get('/connexion', 
 [LoginController::class, 'getLoginForm'])->name('login');
-Route::post('login',
-[LoginController::class, 'login']);
 
+Route::post('login',
+[LoginController::class, 'login'])->name('connexion');
 
 Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
+
+Route::get('/logout',
+[LogOutController::class, 'logout'])->name('logout');
+
+Route::get('/disponibilites', DispoController::class)->name('disponibilites'); 
+

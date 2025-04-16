@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('disponibilites', function (Blueprint $table) {
             $table->id();
-            $table->enum('jourSemaine', ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'])->default('Lundi');
+            $table->date('date');
             $table->enum('heure', [
                 '8h00',
                 '9h00',
@@ -31,6 +31,7 @@ return new class extends Migration
                 '21h00',
                 '22h00'
             ])->default('8h00');
+            $table->foreignId('personne_id')->constrained('personnes');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

@@ -21,7 +21,7 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
-                                <form class="mx-1 mx-md-4" name="login" method="post" action="{{ url('/login') }}" id="login">
+                                <form class="mx-1 mx-md-4" name="login" method="post" action="{{ route('connexion') }}" id="login">
                                     @csrf
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -40,9 +40,13 @@
                                     </div>
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Connexion</button>
+                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Connexion</button> 
                                     </div>
+                                    
                                 </form>
+                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                    <p><a href="{{ route('inscription') }}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Créer un compte</a></p>
+                                </div>
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
