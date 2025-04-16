@@ -23,6 +23,7 @@
     }
 </style>
 
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -68,16 +69,17 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="title">Suggestions</h3>
+                <h3 class="title">Interets</h3>
                 <p class="category">Personnes avec des interets similaires</p>
             </div>
             <div class="card-body all-icons">
                 <div class="row">
-                    @foreach($suggestedPersonnesInteret as $suggestedPersonneInteret)
+                @if(isset($suggestedPersonnesInterets) && !empty($suggestedPersonnesInterets))
+                    @foreach($suggestedPersonnesInterets as $suggestedPersonneInteret)
                         <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
                             <div class="font-icon-detail">
                                
-                                <i class="tim-icons icon-single-02"></i>
+                            <i class="tim-icons icon-single-02"></i>
                                 <p>{{ $suggestedPersonneInteret->prenom }} {{ $suggestedPersonneInteret->nom }}</p> 
                                 <p></p> 
                                 
@@ -92,11 +94,13 @@
                     @endforeach
                     
                    
-                    @if($suggestedPersonnesInteret->isEmpty())
+                    @if($suggestedPersonnesInterets->isEmpty())
                         <div class="col-12">
                             <p>Aucune suggestion disponible pour le moment.</p>
                         </div>
                     @endif
+
+                @endif
                 </div>
             </div>
         </div>

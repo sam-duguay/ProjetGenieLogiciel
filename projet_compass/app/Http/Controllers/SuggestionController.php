@@ -20,13 +20,13 @@ class SuggestionController extends Controller
     {
         // return $this->getSuggestions($request);
 
-        $hobbiesSuggestions = $this->getSuggestions($request);
+        $suggestedPersonnes = $this->getSuggestions($request);
 
-        $interestSuggestions = $this->getSuggestionsInteret($request);
+        $suggestedPersonnesInterets = $this->getSuggestionsInteret($request);
 
         return view('suggestion.index', [
-            'hobbiesSuggestions' => $hobbiesSuggestions,
-            'interestSuggestions' => $interestSuggestions,
+            'suggestedPersonnes' => $suggestedPersonnes,
+            'suggestedPersonnesInterets' => $suggestedPersonnesInterets,
         ]);
     }
 
@@ -66,8 +66,9 @@ class SuggestionController extends Controller
         foreach ($suggestedPersonnes as $suggestedPersonne) {
             $suggestedPersonne->common_hobbies = $suggestedPersonne->hobbies->intersect($hobbies);
         }
-       
-        return view('suggestion.index', ['suggestedPersonnes' => $suggestedPersonnes]);
+        
+        return $suggestedPersonnes;
+     
 
     }
 
@@ -97,20 +98,20 @@ class SuggestionController extends Controller
         }
 
         //whereHas vérifie dans personnes la relation "hobbies"
-        $suggestedPersonnesInteret = Personne::whereHas('interets', function ($query) use ($interets) {
+        $suggestedPersonnesInterets = Personne::whereHas('interets', function ($query) use ($interets) {
             $query->whereIn('interet_personne.interet_id', $interets->pluck('id'));
         })
         ->where('id', '!=', $personne->id) 
         ->get();
 
-        foreach ($suggestedPersonnesInteret as $suggestedPersonneInteret) {
+        
+        foreach ($suggestedPersonnesInterets as $suggestedPersonneInteret) {
             $suggestedPersonneInteret->common_interets = $suggestedPersonneInteret->interets->intersect($interets);
         }
 
-        
        
-        return view('suggestion.index', ['suggestedPersonnes' => $suggestedPersonnesInteret]);
-
+        return $suggestedPersonnesInterets; // Retourne les suggestions
+     
     }
 
 
