@@ -40,12 +40,12 @@
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
+                                        <p>Sélectionner votre statut</p>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <select name="statut" id="statut"class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                            <select name="statut" id="statut" class="form-select form-select-sm" aria-label=".form-select-sm example" value="{{ $personne->statut }}">
                                                 <option value="professeur">professeur</option>
                                                 <option value="etudiant">etudiant</option>
                                             </select>
-                                            <label class="form-label" for="form3Example1c">Sélectionner votre statut</label>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -64,25 +64,25 @@
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
+                                        <p>Sélectionner votre sexe</p>
                                         <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="sexe" id="sexe" class="form-select custom-select-style">
+                                            <select name="sexe" id="sexe" class="form-select custom-select-style" value="{{ $personne->sexe }}">
                                                 <option value="femelle">femelle</option>
                                                 <option value="male">male</option>
                                             </select>
-                                            <label class="form-label select-label" for="sexe">Sélectionner votre sexe</label>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         {{-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> --}}
+                                        <p>Sélectionner votre Programme / Discipline</p>
                                         <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="discipline_id" id="discipline_id" class="form-select custom-select-style">
+                                            <select name="discipline_id" id="discipline_id" class="form-select custom-select-style" value="{{ $personne->discipline_id }}">
                                                 @foreach ($disciplines as $discipline )
                                                     <option value="{{ $discipline->id}}">
                                                         {{ $discipline->noProgramme." , ". $discipline->nom }}
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            <label class="form-label select-label" for="discipline_id">Sélectionner votre Programme / Discipline</label>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
