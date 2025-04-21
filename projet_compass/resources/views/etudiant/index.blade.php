@@ -87,11 +87,13 @@
                         <p>{{ __('Dashboard') }}</p>
                         </a>
                     </li>
+
+                    
                     <li>
 
-                        <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
+                        <a data-toggle="collapse" href="{{ route('suggestion.index') }}" aria-expanded="true">
                             <i class="fab fa-laravel"></i>
-                            <span class="nav-link-text">{{ __('Laravel Examples') }}</span>
+                            <span class="nav-link-text">Suggestion</span>
                             <b class="caret mt-1"></b>
                         </a>
 
@@ -160,7 +162,11 @@
         </div>
 
         <div class="main-panel">
+
+        
             <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+
+            
                 <div class="container-fluid">
 
                     <div class="navbar-wrapper">
