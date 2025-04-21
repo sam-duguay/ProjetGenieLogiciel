@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PersonneRequest;
 use App\Models\Discipline;
+use App\Models\Hobby;
+use App\Models\Interet;
 use App\Models\Programme;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
@@ -15,7 +17,10 @@ class PersonnesController extends Controller
     public function fillprofile($id) {
         $disciplines = Discipline::all();
         $personne = Personne::find($id);
-        return view('fillprofile.fillprofile', compact('id', 'disciplines','personne'));
+        $hobbie = Hobby::all();
+        $interet = Interet::all();
+        
+        return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbie', 'interet'));
     }
     public function update(PersonneRequest $request, Personne $personne, $id) 
     {
@@ -46,6 +51,17 @@ class PersonnesController extends Controller
             }
     
             $personne->save();
+
+           if($request->filled('new_hobby_nom') && $request->filled('new_hobby_description')) {
+                $hobby = new Hobby();
+                $hobby->nom = $request->input('new_hobby_nom');
+                $hobby->description = $request->input('new_hobby_description');
+                $hobby->save();
+    
+                $personne->hobbies()->attach($hobby);
+            }
+            $hobbies = $request->input('hobbies', []);
+            $personne->hobbies()->sync($hobbies);
     
             return redirect()->route('home')->with('message', 'Enregistrement réussi : ' . $personne->nom);
     }
