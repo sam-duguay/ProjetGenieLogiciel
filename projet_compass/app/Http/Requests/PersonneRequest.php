@@ -28,11 +28,15 @@ class PersonneRequest extends FormRequest
             'photo'=> 'required',
             'age'=> 'required|numeric',
             'sexe'=> 'required',
+            'discipline_id'=> 'required|exists:disciplines,id',
+            'hobbies' => 'required|array',
+            'interets' => 'required|array',
+
             // pour la validation des hobbies
-            'hobbie_nom' => 'nullable|array',
-            'hobbie_nom.*' => 'required_with:hobbie_description.*|string|max:100',
-            'hobbie_description' => 'nullable|array',
-            'hobbie_description.*' => 'required_with:hobbie_nom.*|string|max:255',
+            // 'hobbie_nom' => 'nullable|array',
+            // 'hobbie_nom.*' => 'required_with:hobbie_description.*|string|max:100',
+            // 'hobbie_description' => 'nullable|array',
+            // 'hobbie_description.*' => 'required_with:hobbie_nom.*|string|max:255',
            
             
         ];
@@ -46,7 +50,9 @@ class PersonneRequest extends FormRequest
             'prenom.max' => 'Le prénom ne doit pas dépasser 100 caractères',
             'prenom.required' => 'Le prénom est requis',
             'statut.required' => 'Le statut est requis',
-            'photo.required' => 'La photo est requise',
+            'photo.required' => 'Vous devez télécharger une photo',
+            'hobbies.required' => 'vous devez sélectionner au moins un hobby',
+            'interets.required' => 'vous devez sélectionner au moins un interet',
             // 'photo.url' => 'La photo doit être une URL valide',
             'age.numeric' => 'L\'âge doit être un nombre',
             'age.required' => 'L\'âge est requis',
