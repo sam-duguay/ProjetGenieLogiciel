@@ -28,12 +28,11 @@ class PersonneRequest extends FormRequest
             'photo'=> 'required',
             'age'=> 'required|numeric',
             'sexe'=> 'required',
-            
-                'hobbie_nom' => 'nullable|array',
-                'hobbie_nom.*' => 'required_with:hobbie_description.*|string|max:100',
-            
-                'hobbie_description' => 'nullable|array',
-                'hobbie_description.*' => 'required_with:hobbie_nom.*|string|max:255',
+            // pour la validation des hobbies
+            'hobbie_nom' => 'nullable|array',
+            'hobbie_nom.*' => 'required_with:hobbie_description.*|string|max:100',
+            'hobbie_description' => 'nullable|array',
+            'hobbie_description.*' => 'required_with:hobbie_nom.*|string|max:255',
            
             
         ];
