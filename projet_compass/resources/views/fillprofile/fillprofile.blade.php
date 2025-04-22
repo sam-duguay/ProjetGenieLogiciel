@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titre', 'Rencontre+ | Profile')
+@section('title', 'Profile')
 
 @if(isset($errors) && $errors->any())
 <div class="alert alert-danger">
@@ -10,7 +10,7 @@
 </div>
 @endif
 
-<section class="vh-100" style="background-color: #eee;">
+@section('content')
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -169,4 +169,4 @@
             });
         });
     </script> --}}
-</section>
+@endsection
