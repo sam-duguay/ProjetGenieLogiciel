@@ -118,6 +118,7 @@
                 </nav>
 
                 <div class="content container-fluid px-0">
+                    @yield('content')
                     @yield('calendrier')
                     @yield('formulaire')
                 </div>
