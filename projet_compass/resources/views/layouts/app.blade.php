@@ -10,21 +10,21 @@
     <title>Rencontre+ - @yield('title')</title>
     
     <!-- Favicon -->
-    {{-- <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('asset/img/apple-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('asset/img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('asset/img/favicon.png') }}">
-     --}}
+    
     <!-- Fonts -->
-    {{-- <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" /> 
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     
-    <!-- Icons 
-    <link href="{{ asset('asset/css/nucleo-icons.css') }}" rel="stylesheet" />-->
+    <!-- Icons -->
+    <link href="{{ asset('asset/css/nucleo-icons.css') }}" rel="stylesheet" />
     
-    <!-- CSS 
-    <link href="{{ asset('asset/css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />-->
-    {{-- <link href="{{ asset('asset/css/theme.css') }}" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="{{ asset('asset/css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />
+    <link href="{{ asset('asset/css/theme.css') }}" rel="stylesheet" />
 
-    <link rel="stylesheet" href="style.css"> --}}
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -161,5 +161,6 @@
             </div>
 
         </div>
+
     </body>
 </html>
