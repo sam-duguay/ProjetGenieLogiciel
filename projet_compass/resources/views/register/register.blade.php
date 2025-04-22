@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('titre', 'Rencontre+ | S\'inscrire')
+
+@section('title', 'S\'inscrire')
 
 @if(isset($errors) && $errors->any())
 <div class="alert alert-danger">
@@ -9,8 +10,8 @@
 </div>
 @endif
 
-<section class="vh-100" style="background-color: #eee;">
-    <div class="container h-100">
+@section('content')
+    <div class="h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
@@ -87,4 +88,4 @@
             </div>
         </div>
     </div>
-</section>
+@endsection

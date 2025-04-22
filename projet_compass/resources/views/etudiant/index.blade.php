@@ -2,8 +2,6 @@
 
 @section('title', 'Page d\'Accueil')
 
-@section('page', 'Page d\'Accueil')
-
 @section('content')
 
 <p>Ceci est un test de contenu</p>
