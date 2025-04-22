@@ -27,6 +27,7 @@ class SuggestionController extends Controller
         return view('suggestion.index', [
             'suggestedPersonnes' => $suggestedPersonnes,
             'suggestedPersonnesInterets' => $suggestedPersonnesInterets,
+            'show_sidebar' => true
         ]);
     }
 
