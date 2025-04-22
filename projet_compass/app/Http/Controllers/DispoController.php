@@ -16,13 +16,14 @@ class DispoController extends Controller
  
         $disponibilites = Disponibilite::all();
  
-        // foreach ($disponibilites as $disponibilite) {
-        //     $events[] = [
-        //         'date' => $disponibilite->date,
-        //         'heure' => $disponibilite->heure
-        //     ];
-        // }
+        foreach ($disponibilites as $disponibilite) {
+            $events[] = [
+                'title' => 'Disponibilité',
+                'start' => $disponibilite->startTime,
+                'end' => $disponibilite->endTime,
+            ];
+        }
  
-        return view('disponibilites.disponibilites', compact('disponibilites'));
+        return view('disponibilites.disponibilites', compact('events'));
     }
 }

@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Disponibilite extends Model
 {
     protected $fillable = [
-        'date',
-        'heure',
+        'startTime',
+        'endTime',
         'personne_id'
     ];
 
