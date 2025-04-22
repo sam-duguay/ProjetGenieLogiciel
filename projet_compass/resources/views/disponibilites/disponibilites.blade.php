@@ -2,6 +2,14 @@
 
 @section('app.name', 'Rencontre+ | Organiser une rencontre')
 
+@if(isset($errors) && $errors->any())
+<div class="alert alert-danger">
+    @foreach($errors->all() as $error)
+    <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif
+
 @section('calendrier')
     <div class="container w-75 mx-auto">
         <div class="row w-100">
@@ -16,15 +24,13 @@
                         document.addEventListener('DOMContentLoaded', function () {
                             var calendarEl = document.getElementById('calendar');
                             var calendar = new FullCalendar.Calendar(calendarEl, {
-                                dateClick: function() {
-                                    alert('a date has been clicked');
-                                },
+                                // dateClick: function() {
+                                //     alert('a date has been clicked');
+                                // },
                                 eventClick: function(info) {
                                     
-                                    alert('Event: ' + info.event.title);
-                                    alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                                    alert('View: ' + info.view.type);
-
+                                    alert('Event: ' + info.event.id);
+                                    $dispoChoisi = info.event.id;
                                     // change the border color just for fun
                                     info.el.style.borderColor = 'red';
                                     
@@ -57,7 +63,7 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Créer une rencontre</p>
 
-                                <form class="mx-1 mx-md-4" method="post">
+                                <form class="mx-1 mx-md-4" method="post" action="{{ route('rencontre', [$personne[0]->id, $dispoChoisi]) }}">
                                     @csrf
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -86,7 +92,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="email" id="email" name="email" class="form-control" value="{{ $user->email }}" />
+                                            <input type="email" id="email" name="email" class="form-control" value="{{ $dispoChoisi}}" />
                                             <label class="form-label" for="form3Example3c">Confirmer l'heure choisi</label>
                                         </div>
                                     </div>
