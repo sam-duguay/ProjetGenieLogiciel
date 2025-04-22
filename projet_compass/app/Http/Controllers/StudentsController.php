@@ -11,7 +11,9 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        return view('etudiant.index');
+        return view('etudiant.index', [
+            'show_sidebar' => true //Affiche la sidebar si true dans le layout
+        ]);
     }
 
     /**
