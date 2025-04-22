@@ -17895,4 +17895,8 @@ Copyright (c) 2015 Daniel Eden
   line-height: 32px;
 }
 
+.fc-content {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=dashboard-free.css.map */

@@ -18,13 +18,25 @@
                                 dateClick: function() {
                                     alert('a date has been clicked');
                                 },
+                                eventClick: function(info) {
+                                    
+                                    alert('Event: ' + info.event.title);
+                                    alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                                    alert('View: ' + info.view.type);
+
+                                    // change the border color just for fun
+                                    info.el.style.borderColor = 'red';
+                                    
+                                },
                                 initialView: 'timeGridWeek',
                                 slotMinTime: '8:00:00',
                                 slotMaxTime: '21:00:00',
                                 events: @json($events),
+                                editable: true
                             });
                             calendar.render();
                             calendar.setOption('height', "auto");
+                            calendar.editable = true
                         });
                     </script>
                 @endpush

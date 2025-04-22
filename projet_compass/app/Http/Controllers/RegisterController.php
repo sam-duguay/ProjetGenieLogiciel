@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     public function getRegisterForm() {
-        return view('register.register');
+        return view('register.register', [
+            'show_sidebar' => false
+        ]);
     }
 
     public function register(RegisterRequest $request)
