@@ -12,7 +12,7 @@ use App\Http\Controllers\DispoController;
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
 Route::get('Accueil', [StudentsController::class, 'index'])->name('home');
-Route::get('/', [StudentsController::class, 'index'])->name('home');
+//Route::get('/', [StudentsController::class, 'index'])->name('home');
 
 
 Route::get('/inscription', function () {
