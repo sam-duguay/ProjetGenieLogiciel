@@ -11,20 +11,21 @@ use App\Models\Programme;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
 use Faker\Provider\ar_EG\Person;
+use Illuminate\Support\Facades\DB;
 
 class PersonnesController extends Controller
 {
     public function fillprofile($id) {
         $disciplines = Discipline::all();
         $personne = Personne::find($id);
-        $hobbie = Hobby::all();
+        $hobbies = Hobby::all();
         $interet = Interet::all();
         
-        return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbie', 'interet'));
+        return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbies', 'interet'));
     }
     public function update(PersonneRequest $request, Personne $personne, $id) 
     {
-        
+        // dd($request->all());
        $personne = Personne::find($id);
 
     //    try{
@@ -40,10 +41,13 @@ class PersonnesController extends Controller
                 $fichier = $request->file('photo');
                 $nomFichier = 'photo_' . uniqid() . '.' . $fichier->getClientOriginalExtension();
     
-                try {
+                try 
+                {
                     $fichier->move(public_path('img/personnes'), $nomFichier);
                     $personne->photo = $nomFichier;
-                } catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+                } 
+                catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) 
+                {
                     Log::error('Erreur lors du téléversement du fichier : ', [$e]);
                 }
             }elseif (!$personne->photo) {
@@ -52,16 +56,33 @@ class PersonnesController extends Controller
     
             $personne->save();
 
-           if($request->filled('new_hobby_nom') && $request->filled('new_hobby_description')) {
-                $hobby = new Hobby();
-                $hobby->nom = $request->input('new_hobby_nom');
-                $hobby->description = $request->input('new_hobby_description');
-                $hobby->save();
-    
-                $personne->hobbies()->attach($hobby);
+           
+           if($request->filled('hobbie_nom.*') && $request->filled('hobbie_description.*')) {
+                $listNom = $request->input('hobbie_nom.*');
+                $listDescription = $request->input('hobbie_description.*');
+
+                for($index = 0; $index < count($listNom); $index++) {
+                   /* $hobby = new Hobby();
+                    $hobby->nom = $listNom[$index];
+                    $hobby->description = $listDescription[$index];
+                    $hobby->save();*/
+                    $hobby = Hobby::create([
+                        'nom' => $listNom[$index],
+                        'description' => $listDescription[$index],
+                    ]);
+
+                    // DB::table('hobby_personne')->insert([
+                    //     'hobby_id' => $hobby->id,
+                    //     'personne_id' => $personne->id,
+                    // ]);
+
+                    $personne->hobbies()->syncWithoutDetaching([$hobby->id]);
+                }
             }
             $hobbies = $request->input('hobbies', []);
-            $personne->hobbies()->sync($hobbies);
+            $personne->hobbies()->syncWithoutDetaching($hobbies);
+
+            //$personne->hobbies()->sync($hobbies);
     
             return redirect()->route('home')->with('message', 'Enregistrement réussi : ' . $personne->nom);
     }

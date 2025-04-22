@@ -87,19 +87,25 @@
                                     </div>
                                     {{-- select parmi existant --}}
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        {{-- <div class="form-outline flex-fill mb-0 position-relative">
+                                        <p>Sélectionner vos hobbies</p>
+                                        <div class="form-outline flex-fill mb-0 position-relative">
                                             <select name="hobbies[]" id="hobbies" class="form-select custom-select-style" multiple>
-                                                @foreach ($hobbie as $h)
-                                                    <option value="{{ $h->id }}" {{ $personne->hobbies->contains($h->id) }}>{{ $h->nom }}</option>
+                                                @foreach ($hobbies as $hobbie)
+                                                    <option value="{{ $hobbie->id }}" {{ $personne->hobbies->contains($hobbie->id) }}>{{ $hobbie->nom }}</option>
                                                 @endforeach
                                             </select>
-                                        </div> --}}
-                                        {{-- <label for="hobbies">Sélectionner vos hobbies existants :</label>
-                                        <select name="hobbies[]" id="hobbies" class="form-select" multiple>
-                                            @foreach ($hobbie as $h)
-                                                <option value="{{ $h->id }}">{{ $h->nom }}</option>
-                                            @endforeach
-                                        </select> --}}
+                                        </div>
+                                    </div>
+                                    <button  class="btn btn-primary btn-lg"  id="new_hobbie" type="button">
+                                        plus
+                                    </button>
+                                    <div class="d-flex flex-row align-items-center mb-4" id="group_hobbie">
+                                        {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
+                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                            <input type="text" id="hobbie_nom" class="form-control" name="hobbie_nom[]" placeholder="nom hobbie"/>
+                                            <input type="text" id="hobbie_description" class="form-control" name="hobbie_description[]" placeholder="description hobbie"/>
+                                        </div>
+                                        
                                     </div>
                                 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
@@ -120,4 +126,33 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addHobbieButton = document.getElementById('new_hobbie');
+            const hobbieContainer = document.getElementById('group_hobbie');
+
+            let hobbieCount = 1; // Start from 1 since we already have one input
+
+            addHobbieButton.addEventListener('click', function() {
+                hobbieCount++;
+
+                const newHobbieContainer = document.createElement('div');
+                newHobbieContainer.className = 'd-flex flex-row align-items-center mb-4';
+
+                const newHobbieInput = document.createElement('input');
+                newHobbieInput.type = 'text';
+                newHobbieInput.name = `hobbie_nom[]`;
+                newHobbieInput.placeholder = 'nom hobbie';
+                newHobbieContainer.appendChild(newHobbieInput);
+
+                const newHobbieDescriptionInput = document.createElement('input');
+                newHobbieDescriptionInput.type = 'text';
+                newHobbieDescriptionInput.name = `hobbie_description[]`;
+                newHobbieDescriptionInput.placeholder = 'description hobbie';
+                newHobbieContainer.appendChild(newHobbieDescriptionInput);
+
+                hobbieContainer.appendChild(newHobbieContainer);
+            });
+        });
+    </script>
 </section>
