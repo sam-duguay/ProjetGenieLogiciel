@@ -29,11 +29,7 @@
 
 
     <body>
-
         <div class="wrapper">
-            
-
-
             <!-- Sidebar -->
             <!-- Elle s'affiche seulement si l'attribut show_sidebar est retourné à true dans le controller en question -->
             @if(isset($show_sidebar) && $show_sidebar)
@@ -100,10 +96,7 @@
                                     </a>
                                 </li>
 
-                                <!-- Ajouter une variable de session une fois qu'on est connecté -->
-                                <!-- ***TODO*** AJOUTER LE SESSION ID ICI-->
-                                <!-- <li class="nav-item" href="{{ route('fillprofile/{id}') }}"> 
-                                </li> -->
+                               
                                 @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">
@@ -124,8 +117,9 @@
                     </div>
                 </nav>
 
-                <div class="content">
-                    @yield('content')
+                <div class="content container-fluid px-0">
+                    @yield('calendrier')
+                    @yield('formulaire')
                 </div>
 
 
@@ -163,4 +157,6 @@
         </div>
 
     </body>
+    @stack('js')
+    @stack('scripts')
 </html>

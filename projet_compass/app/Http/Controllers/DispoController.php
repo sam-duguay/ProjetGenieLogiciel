@@ -24,8 +24,7 @@ class DispoController extends Controller
         // $personne_match = Personne::find($request->user_id);
         $personne_match = Personne::find(10);
         $dispos_match = $personne_match->disponibilites;
-        $disponibilites_user = Disponibilite::where('personne_id', $personne[0]->id)->get();
-
+        
         foreach ($dispos_match as $disponibilite) {
             $events[] = [
                 'title' => 'Disponibilité',
@@ -33,7 +32,7 @@ class DispoController extends Controller
                 'end' => $disponibilite->endTime,
             ];
         }
- 
-        return view('disponibilites.disponibilites', compact('user', 'events', 'personne', 'disponibilites_user', 'dispos_match'));
+        
+        return view('disponibilites.disponibilites', compact('user', 'events', 'personne', 'dispos_match'));
     }
 }
