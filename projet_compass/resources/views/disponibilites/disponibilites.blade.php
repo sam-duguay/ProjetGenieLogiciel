@@ -2,39 +2,40 @@
 
 @section('app.name', 'Rencontre+ | Organiser une rencontre')
 
-@section('content')
-    <div class="div w-50 mx-auto">
-        <div id="calendar">
-            @push('scripts')
-                <!-- Contains calendar class -->
-                <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
-                <!-- to get daygrid and month views -->
-                <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
-                <!-- to get timeGrid views -->
-                <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" />
-                <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-                <script> 
-                    document.addEventListener('DOMContentLoaded', function () {
-                        var calendarEl = document.getElementById('calendar');
-                        var calendar = new FullCalendar.Calendar(calendarEl, {
-                            dateClick: function() {
-                                alert('a date has been clicked');
-                            },
-                            initialView: 'timeGridWeek',
-                            slotMinTime: '8:00:00',
-                            slotMaxTime: '21:00:00',
-                            events: @json($events),
+@section('calendrier')
+    <div class="container w-50 mx-auto">
+        <div class="row w-100">
+            <div id="calendar">
+                @push('scripts')
+                    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
+                    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
+                    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" />
+                    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+                    <script> 
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var calendarEl = document.getElementById('calendar');
+                            var calendar = new FullCalendar.Calendar(calendarEl, {
+                                dateClick: function() {
+                                    alert('a date has been clicked');
+                                },
+                                initialView: 'timeGridWeek',
+                                slotMinTime: '8:00:00',
+                                slotMaxTime: '21:00:00',
+                                events: @json($events),
+                            });
+                            calendar.render();
+                            calendar.setOption('height', "auto");
                         });
-                        calendar.render();
-                    });
-                    
-                </script>
-            @endpush
+                    </script>
+                @endpush
+            </div>
         </div>
+        
     </div>
+@endsection
 
-    <div class="container">
-        <div class="row d-flex justify-content-center align-items-center">
+@section('formulaire')
+<div class="row d-flex justify-content-center align-items-center py-3 w-75 mx-auto">
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
@@ -102,5 +103,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

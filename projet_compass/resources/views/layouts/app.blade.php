@@ -28,12 +28,7 @@
 </head>
 
     <body class="{{ $class ?? '' }}">
-<<<<<<< Updated upstream
-   
         @auth()
-=======
-        <!-- @auth()
->>>>>>> Stashed changes
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
                 <div class="main-panel">
@@ -45,21 +40,22 @@
 
                     @include('layouts.footer')
                 </div>
-            </div> -->
-            <!-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
-            </form> -->
-        <!-- @else -->
+            </form>
+        @else
             @include('layouts.navbars.navbar')
                 <div class="wrapper wrapper-full-page">
                     <div class="full-page {{ $contentClass ?? '' }}">
                         <div class="content">
-                                @yield('content')
+                                @yield('calendrier')
+                                @yield('formulaire')
                         </div>
                     </div>
                 </div>
             @include('layouts.footer')
-        <!-- @endauth -->
+        @endauth
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
@@ -212,5 +208,6 @@
             });
         </script>
         @stack('js')
+        @stack('scripts')
     </body>
 </html>
