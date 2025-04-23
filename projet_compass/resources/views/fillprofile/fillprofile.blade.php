@@ -29,6 +29,7 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="text" id="form3Example1c" class="form-control" name="nom" value="{{ $personne->nom }}"/>
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
+                                            
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -67,8 +68,8 @@
                                         <p>Sélectionner votre sexe</p>
                                         <div class="form-outline flex-fill mb-0 position-relative">
                                             <select name="sexe" id="sexe" class="form-select custom-select-style" value="{{ $personne->sexe }}">
-                                                <option value="femelle">femelle</option>
-                                                <option value="male">male</option>
+                                                <option value="femelle">féminin</option>
+                                                <option value="male">masculin</option>
                                             </select>
                                         </div>
                                     </div>
@@ -79,7 +80,7 @@
                                             <select name="discipline_id" id="discipline_id" class="form-select custom-select-style" value="{{ $personne->discipline_id }}">
                                                 @foreach ($disciplines as $discipline )
                                                     <option value="{{ $discipline->id}}">
-                                                        {{ $discipline->noProgramme." , ". $discipline->nom }}
+                                                        {{ $discipline->noProgramme.", ". $discipline->nom }}
                                                     </option>
                                                 @endforeach
                                             </select>
