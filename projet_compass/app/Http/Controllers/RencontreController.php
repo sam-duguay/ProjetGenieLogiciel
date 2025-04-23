@@ -11,12 +11,20 @@ use App\Models\Personne;
 
 class RencontreController extends Controller
 {
-    public function rencontre(Request $request, $personne_id, $disponibilite_id)
+    public function creer_rencontre(Request $request, $disponibilite_id)
     {
-        dd( $request, $personne_id, $disponibilite_id);
+        $user = Auth::user();
+        $disponibilite = Disponibilite::find($disponibilite_id);
+        $personne = Personne::where('user_id', $user->id)->get();
+
+        return view('rencontre.rencontre', compact('disponibilite', 'user', 'personne'));
+    }    
+    public function rencontre(Request $request, $disponibilite)
+    {
+        dd( $request, $disponibilite);
         $rencontre = new Rencontre();
-        $rencontre->personne_id = $request->personne_id;
-        $rencontre->disponibilite_id = $request->disponibilite_id;
+        // $rencontre->personne_id = $request->personne_id;
+        // $rencontre->disponibilite_id = $request->disponibilite_id;
             
         // try{
         //     $equipe = new Equipe ($request->all());

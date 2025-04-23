@@ -33,7 +33,8 @@ class DispoController extends Controller
                 'title' => 'Disponibilité',
                 'start' => $disponibilite->startTime,
                 'end' => $disponibilite->endTime,
-                'id' => $disponibilite->id
+                'id' => $disponibilite->id,
+                'url' => '/creer_rencontre'
             ];
         }
         

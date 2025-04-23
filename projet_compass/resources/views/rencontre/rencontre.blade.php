@@ -2,12 +2,6 @@
 
 @section('title', 'S\'inscrire')
 
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
 @if(isset($errors) && $errors->any())
 <div class="alert alert-danger">
     @foreach($errors->all() as $error)
@@ -25,14 +19,14 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Inscrivez Vous</p>
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Créer une rencontre</p>
 
-                                <form class="mx-1 mx-md-4" name="register" method="post" action="{{ route('register') }}" id="register">
+                                <form class="mx-1 mx-md-4" name="rencontre" method="post" action="{{ route('creer_rencontre', $disponibilite) }}" id="rencontre">
                                     @csrf
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="nom" name="nom" class="form-control" />
+                                            <input type="text" id="nom" name="nom" class="form-control" value="{{ $personne[0]->nom }}"/>
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
                                         </div>
                                     </div>
@@ -40,7 +34,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="prenom" name="prenom" class="form-control" />
+                                            <input type="text" id="prenom" name="prenom" class="form-control" value="{{ $personne[0]->prenom }}" />
                                             <label class="form-label" for="form3Example1c">Votre prenom</label>
                                         </div>
                                     </div>
@@ -48,24 +42,16 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="email" id="email" name="email" class="form-control" />
+                                            <input type="email" id="email" name="email" class="form-control" value="{{ $user->email }}" />
                                             <label class="form-label" for="form3Example3c">Votre adresse courriel</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="password" id="password" name="password" class="form-control" />
-                                            <label class="form-label" for="form3Example4c">Votre mot de passe</label>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" />
-                                            <label class="form-label" for="form3Example4cd">Veuillez confirmer votre mot de passe</label>
+                                            <input type="text" id="date" name="date" class="form-control" value="{{  }}"/>
+                                            <label class="form-label" for="form3Example4cd">Veuillez confirmer la date</label>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

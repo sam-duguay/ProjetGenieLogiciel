@@ -47,8 +47,11 @@ Route::middleware(Authenticate::class)->group(function(){
 
     Route::get('/disponibilites', DispoController::class)->name('disponibilites')->middleware(); 
 
-    Route::post('/rencontre', 
-    [RencontreController::class, 'rencontre'])->name('rencontre'); 
+    Route::get('/creer_rencontre/{id}', 
+    [RencontreController::class, 'creer_rencontre'])->name('creer_rencontre'); 
+
+    Route::post('/rencontre/{disponibilite}', 
+    [RencontreController::class, 'creer_rencontre'])->name('creer_rencontre'); 
 
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
 });
