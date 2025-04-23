@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+use RTippin\Messenger\Contracts\MessengerProvider;
+use RTippin\Messenger\Traits\MessengerProvider as MessengerProviderTrait;
+
+
+
+
+class User extends Authenticatable 
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    
+    use HasFactory, Notifiable ;
+    
 
     /**
      * The attributes that are mass assignable.
@@ -47,4 +54,8 @@ class User extends Authenticatable
     public function personne(){
         return $this ->hasOne(Personne::class, 'user_id');
     }
+
+
+
+
 }
