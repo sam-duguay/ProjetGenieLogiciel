@@ -110,6 +110,19 @@
                                         </div>
                                     </div>
 
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <p>Selectionner vos langues parlées</p>
+                                        <div class="form-outline flex-fill mb-0 position-relative">
+                                            <select name="langues[]" id="langues" class="form-select custom-select-style" multiple>
+                                                @foreach ($langues as $langue)
+                                                    <option value="{{ $langue->id }}">
+                                                        {{ $langue->nom }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     {{-- <button  class="btn btn-primary btn-lg"  id="new_hobbie" type="button">
                                         plus
                                     </button>
