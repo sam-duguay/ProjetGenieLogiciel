@@ -25,7 +25,7 @@ class PersonneTableSeeder extends Seeder
                 'nom' => $fake->unique()->firstName(),
                 'prenom' => $fake->unique()->lastName(),
                 'statut' => $fake->randomElement(['etudiant', 'professeur']),
-                'photo' => "",
+                'photo' => "asset/img/personne.jpg",
                 'age' => $fake->numberBetween(16, 100),
                 'sexe' => $fake->randomElement(['male', 'femelle']),
                 'user_id' => $userId,

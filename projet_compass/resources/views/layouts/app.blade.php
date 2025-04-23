@@ -117,7 +117,7 @@
                     </div>
                 </nav>
 
-                <div class="content container-fluid px-0">
+                <div class="content container-fluid {{ isset($show_sidebar) && $show_sidebar ? '' : 'px-0' }}">
                     @yield('content')
                     @yield('calendrier')
                     @yield('formulaire')
