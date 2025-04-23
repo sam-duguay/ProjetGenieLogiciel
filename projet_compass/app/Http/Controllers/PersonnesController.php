@@ -7,6 +7,7 @@ use App\Http\Requests\PersonneRequest;
 use App\Models\Discipline;
 use App\Models\Hobby;
 use App\Models\Interet;
+use App\Models\Langue;
 use App\Models\Programme;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
@@ -20,8 +21,9 @@ class PersonnesController extends Controller
         $personne = Personne::find($id);
         $hobbies = Hobby::all();
         $interets = Interet::all();
+        $langues = Langue::all();
         
-        return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbies', 'interets'));
+        return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbies', 'interets', 'langues'));
     }
     public function update(PersonneRequest $request, Personne $personne, $id) 
     {
@@ -89,6 +91,9 @@ class PersonnesController extends Controller
 
                 $interets = $request->input('interets', []);
                 $personne->interets()->syncWithoutDetaching($interets);
+
+                $langues = $request->input('langues', []);
+                $personne->langues()->syncWithoutDetaching($langues);
                 //$personne->hobbies()->sync($hobbies);
                 return redirect()->route('home')->with('message', 'Enregistrement réussi : ' . $personne->nom);
             }

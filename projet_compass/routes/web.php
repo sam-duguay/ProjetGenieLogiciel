@@ -13,7 +13,7 @@ use App\Http\Middleware\Authenticate;
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
-Route::get('Accueil', [StudentsController::class, 'index'])->name('home');
+//Route::get('Accueil', [StudentsController::class, 'index'])->name('home');
 Route::get('/', [StudentsController::class, 'index'])->name('home');
 
 
