@@ -18,6 +18,13 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
+        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password], $request->connexion)) {
+            return redirect()->route('home')->with('message', 'Connexion réussi');
+        }
+        else {
+            // dd($request);
+            return redirect()->route('login')->withErrors('Informations Invalides');
+        };
         // dd($request);
         // try {
             // $user = User::query()->where('email',$request->email)->first();
@@ -28,13 +35,12 @@ class LoginController extends Controller
             // else {
             //     return redirect()->back()->with('error', 'Invalid credentials');
             // }
-            if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
-                // dd($request);
-                return redirect()->route('home')->with('message', 'Connexion réussi');
-            }
-            else {
-                return redirect()->route('login')->withErrors('message', 'Informations Invalides');
-            };          
+            // if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
+            //    return redirect()->route('home')->with('success', 'Connexion réussi');
+            // }
+            // else {
+            //     return redirect()->back()->withErrors('error', 'Erreur de connexion');
+            // };          
         // } catch (\Exception $e) {
         //     return response()->json([
         //         'status' => 400,

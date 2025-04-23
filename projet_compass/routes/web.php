@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\DispoController;
 use App\Http\Controllers\RencontreController;
+use App\Http\Middleware\Authenticate;
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
@@ -28,24 +29,26 @@ Route::get('/inscription',
 Route::post('register', 
 [RegisterController::class, 'register'])->name('register');
 
-Route::get('fillprofile/{id}', 
-[PersonnesController::class, 'fillprofile'])->name('fillprofile');
-
-Route::patch('/personnes/{id}/update', 
-[PersonnesController::class, 'update'])->name('update');
-
 Route::get('/connexion', 
 [LoginController::class, 'getLoginForm'])->name('login');
 
 Route::post('login',
 [LoginController::class, 'login'])->name('connexion');
 
-Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
-
 Route::get('/logout',
 [LogOutController::class, 'logout'])->name('logout');
 
-Route::get('/disponibilites', DispoController::class)->name('disponibilites'); 
+Route::middleware(Authenticate::class)->group(function(){
+    Route::get('fillprofile/{id}', 
+    [PersonnesController::class, 'fillprofile'])->name('fillprofile');
 
-Route::post('/rencontre', 
-[RencontreController::class, 'rencontre'])->name('rencontre'); 
+    Route::patch('/personnes/{id}/update', 
+    [PersonnesController::class, 'update'])->name('update');
+
+    Route::get('/disponibilites', DispoController::class)->name('disponibilites')->middleware(); 
+
+    Route::post('/rencontre', 
+    [RencontreController::class, 'rencontre'])->name('rencontre'); 
+
+    Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
+});
