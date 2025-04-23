@@ -51,7 +51,7 @@ Route::middleware(Authenticate::class)->group(function(){
     [RencontreController::class, 'creer_rencontre'])->name('creer_rencontre'); 
 
     Route::post('/rencontre/{disponibilite}', 
-    [RencontreController::class, 'creer_rencontre'])->name('creer_rencontre'); 
+    [RencontreController::class, 'rencontre'])->name('creer_rencontre'); 
 
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
 });

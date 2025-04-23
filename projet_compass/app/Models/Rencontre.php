@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 
-class Rencontre extends Pivot
+class Rencontre extends Model
 {
     //C'est une table de pivot avec champs, les relations entre les tables sont donc différentes
     protected $fillable = [

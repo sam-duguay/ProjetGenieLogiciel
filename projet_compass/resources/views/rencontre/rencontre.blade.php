@@ -50,12 +50,12 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="date" name="date" class="form-control" value="{{  }}"/>
+                                            <input type="text" id="date" name="date" class="form-control" value="{{ $disponibilite->startTime }}"/>
                                             <label class="form-label" for="form3Example4cd">Veuillez confirmer la date</label>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Inscrivez Vous</button>
+                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Créer une rencontre</button>
                                     </div>
                                 </form>
 

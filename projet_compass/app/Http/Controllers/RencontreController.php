@@ -6,8 +6,8 @@ use App\Models\Rencontre;
 use Illuminate\Http\Request;
 use App\Models\Disponibilite;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 use App\Models\Personne;
+use Illuminate\Support\Facades\Log;
 
 class RencontreController extends Controller
 {
@@ -21,23 +21,25 @@ class RencontreController extends Controller
     }    
     public function rencontre(Request $request, $disponibilite)
     {
-        dd( $request, $disponibilite);
-        $rencontre = new Rencontre();
-        // $rencontre->personne_id = $request->personne_id;
-        // $rencontre->disponibilite_id = $request->disponibilite_id;
+        try{
+            $rencontre = new Rencontre();
+            $user = Auth::user();
+            $personne = Personne::where('user_id', $user->id)->get();
+            $dispo = Disponibilite::find($disponibilite);
+            $rencontre->personne_id = $personne[0]->id;
+            $rencontre->disponibilite_id = $dispo->id;
             
-        // try{
-        //     $equipe = new Equipe ($request->all());
-        //     $equipe->save();
-        // }
-        // catch (\Throwable $e){
+            // dd($rencontre);
+            $rencontre->save();    
+            return redirect()->route('home')->with('message', 'Rencontre créer avec succès');        
+
+        }
+        catch (\Throwable $e){
             
-            // dump and die
             // dd($request);
 
-            // storage/logs
-            // Log::debug($e);
-        // }
-        // return redirect()->route('jeux.index');        
+            Log::debug($e);
+        }
+        // return redirect()->route('jeux.index')->with('message', 'Rencontre créer avec succès');        
     }    
 }
