@@ -7,6 +7,7 @@ use App\Models\Disponibilite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Models\Personne;
+use Faker\Factory as Faker;
 
 class DispoController extends Controller
 {
@@ -15,6 +16,8 @@ class DispoController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $fake = Faker::create();
+
         $events = [];
         
         $user = Auth::user();
@@ -23,17 +26,19 @@ class DispoController extends Controller
 
         // $personne_match = Personne::find($request->user_id);
         $personne_match = Personne::find(10);
-        $dispos_match = $personne_match->disponibilites;
-        $disponibilites_user = Disponibilite::where('personne_id', $personne[0]->id)->get();
-
-        foreach ($dispos_match as $disponibilite) {
+        $disposMatch = $personne_match->disponibilites;
+        
+        foreach ($disposMatch as $disponibilite) {
             $events[] = [
                 'title' => 'Disponibilité',
                 'start' => $disponibilite->startTime,
                 'end' => $disponibilite->endTime,
+                'id' => $disponibilite->id
             ];
         }
- 
-        return view('disponibilites.disponibilites', compact('user', 'events', 'personne', 'disponibilites_user', 'dispos_match'));
+        
+        $dispoChoisi = 2;
+
+        return view('disponibilites.disponibilites', compact('user', 'events', 'personne', 'disposMatch', 'dispoChoisi'));
     }
 }

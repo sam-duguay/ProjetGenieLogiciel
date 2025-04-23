@@ -8,6 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\DispoController;
+use App\Http\Controllers\RencontreController;
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
@@ -46,3 +47,5 @@ Route::get('/logout',
 
 Route::get('/disponibilites', DispoController::class)->name('disponibilites'); 
 
+Route::post('/rencontre', 
+[RencontreController::class, 'rencontre'])->name('rencontre'); 
