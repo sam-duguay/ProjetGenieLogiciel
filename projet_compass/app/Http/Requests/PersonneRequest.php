@@ -31,6 +31,7 @@ class PersonneRequest extends FormRequest
             'discipline_id'=> 'required|exists:disciplines,id',
             'hobbies' => 'required|array',
             'interets' => 'required|array',
+            'langues' => 'required|array',
 
             // pour la validation des hobbies
             // 'hobbie_nom' => 'nullable|array',
@@ -53,6 +54,7 @@ class PersonneRequest extends FormRequest
             'photo.required' => 'Vous devez télécharger une photo',
             'hobbies.required' => 'vous devez sélectionner au moins un hobby',
             'interets.required' => 'vous devez sélectionner au moins un interet',
+            'langues.required' => 'vous devez sélectionner au moins une langue',
             // 'photo.url' => 'La photo doit être une URL valide',
             'age.numeric' => 'L\'âge doit être un nombre',
             'age.required' => 'L\'âge est requis',
