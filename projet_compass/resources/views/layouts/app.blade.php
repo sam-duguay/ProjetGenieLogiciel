@@ -91,6 +91,11 @@
 
                             @if(Auth::check())
                                 <li class="nav-item">
+                                    <a class="nav-link {{ Request::is( 'logout') ? 'active' : ''}}" href="{{ 'fillprofile/' . Auth::user()->personne->id }}">
+                                    Mettre à jour profile
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link {{ Request::is( 'logout') ? 'active' : ''}}" href="{{ route('logout') }}">
                                     Déconnexion
                                     </a>
