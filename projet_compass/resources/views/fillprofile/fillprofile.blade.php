@@ -13,14 +13,14 @@
 @section('content')
     <div class="h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-10 col-xl-8">
+            <div class="col-xl-7 col-lg-9 ">
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
                         <div class="justify-content-center">
 
                             <div class="row">
 
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Profile : {{ $personne->nom }}</p>
+                                <p class="text-center h1 fw-bold mb-5 mx-auto  mt-4">Mise à jour du profile</p>
                               @if(isset($personne))  
                                 <form class="row" method="post" action="{{ route('update', $id) }}" enctype="multipart/form-data">
                                     @csrf
@@ -28,74 +28,83 @@
 
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" class="form-control" name="nom" value="{{ $personne->nom }}"/>
+                                            <input type="text" id="form3Example1c" class="form-control" name="nom" value="{{ old('nom', $personne->nom) }}"/>
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
                                         </div>
                                     </div>
 
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="number" id="age" class="form-control" name="age" value="{{ $personne->age }}" />
+                                            <input type="number" id="age" class="form-control" name="age" value="{{ old('age', $personne->age) }}" />
                                             <label class="form-label" for="form3Example3c"> Votre age</label>
                                         </div>
                                     </div>
 
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" class="form-control" name="prenom" value="{{ $personne->prenom }}" />
+                                            <input type="text" id="form3Example1c" class="form-control" name="prenom" value="{{ old('prenom', $personne->prenom) }}" />
                                             <label class="form-label" for="form3Example1c">Votre Prenom</label>
                                         </div>
                                     </div>
 
                                     <!-- Ajuster l'affichage du statut quand il est sélectionné -->
-                                    <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="mb-4 col-md-3 col-lg-3 col-xl-3">
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <select name="statut" id="statut" class="form-control form-select-sm" aria-label=".form-select-sm example" value="{{ $personne->statut }}"
-                                            style="color: #333; background-color: #fff;">
-                                                <option value="professeur">professeur</option>
-                                                <option value="etudiant">etudiant</option>
-                                            </select>
+
+                                        <select name="statut" id="statut" class="form-select form-select-sm w-100" aria-label=".form-select-sm example">
+                                            <option value="professeur" {{ old('statut', $personne->statut) == 'professeur' ? 'selected' : '' }}>
+                                                Professeur
+                                            </option>
+                                            <option value="etudiant" {{ old('statut', $personne->statut) == 'etudiant' ? 'selected' : '' }}>
+                                                Étudiant
+                                            </option>
+                                        </select>
+
+                                            <br>
                                             <label class="form-label" for="statut">Sélectionner votre statut</label>
                                         </div>
                                     </div>
 
-
-
-
+                                    <div class="mb-4 col-md-3 col-lg-3 col-xl-3">
+                                        <div class="form-outline flex-fill mb-0 position-relative">
+                                            <select name="sexe" id="sexe" class="form-select custom-select-style w-100">
+                                                <option value="femelle" {{ old('sexe', $personne->statut) == 'femelle' ? 'selected' : '' }}>
+                                                    Femme
+                                                </option>
+                                                <option value="male" {{ old('sexe', $personne->statut) == 'male' ? 'selected' : '' }}>
+                                                    Homme
+                                                </option>
+                                            </select>
+                                            <br>
+                                            <label class="form-label" for="sexe">Sélectionner votre sexe</label>
+                                        </div>
+                                    </div>
 
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="file" id="photo" class="form-control" name="photo" value="{{ $personne->photo  }}" />
-                                            <label class="form-label" for="form3Example3c">Téléchager votre photo</label>
+                                            <label class="form-label" for="form3Example3c">Téléverser votre photo</label>
                                         </div>
                                     </div>
 
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
-                                        <p>Sélectionner votre sexe</p>
-                                        <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="sexe" id="sexe" class="form-select custom-select-style" value="{{ $personne->sexe }}">
-                                                <option value="femelle">femelle</option>
-                                                <option value="male">male</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <p>Sélectionner votre Programme / Discipline</p>
                                         <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="discipline_id" id="discipline_id" class="form-select custom-select-style" value="{{ $personne->discipline_id }}">
+                                            <select name="discipline_id" id="discipline_id" class="form-select custom-select-style w-100">
                                                 @foreach ($disciplines as $discipline )
-                                                    <option value="{{ $discipline->id}}">
+                                                    <option value="{{ $discipline->id}}" {{ old('discipline_id', $discipline->id) == $discipline->id ? 'selected' : '' }}>
                                                         {{ $discipline->noProgramme." , ". $discipline->nom }}
                                                     </option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- select parmi existant --}}
+
+                                    
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <p>Sélectionner vos hobbies</p>
                                         <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="hobbies[]" id="hobbies" class="form-select custom-select-style" multiple>
+                                            <select name="hobbies[]" id="hobbies" class="form-select custom-select-style w-100" multiple>
                                                 @foreach ($hobbies as $hobbie)
                                                     <option value="{{ $hobbie->id }}" {{ $personne->hobbies->contains($hobbie->id) }}>{{ $hobbie->nom }}</option>
                                                 @endforeach
@@ -106,7 +115,7 @@
                                     <div class="mb-4 col-md-6 col-lg-6 col-xl-6">
                                         <p>Sélectionner vos intérêts</p>
                                         <div class="form-outline flex-fill mb-0 position-relative">
-                                            <select name="interets[]" id="interets" class="form-select custom-select-style" multiple>
+                                            <select class="w-100" name="interets[]" id="interets" class="form-select custom-select-style" multiple>
                                                 @foreach ($interets as $interet)
                                                     <option value="{{ $interet->id }}">
                                                         {{ $interet->nom }}
@@ -116,20 +125,25 @@
                                         </div>
                                     </div>
 
-                                    {{-- <button  class="btn btn-primary btn-lg"  id="new_hobbie" type="button">
+
+
+
+                                    <!-- <button  class="btn btn-primary btn-lg"  id="new_hobbie" type="button">
                                         plus
                                     </button>
-                                    <div class="d-flex flex-row align-items-center mb-4" id="group_hobbie"> --}}
-                                        {{-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> --}}
-                                        {{-- <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                    <div class="d-flex flex-row align-items-center mb-4" id="group_hobbie">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="text" id="hobbie_nom" class="form-control" name="hobbie_nom[]" placeholder="nom hobbie"/>
                                             <input type="text" id="hobbie_description" class="form-control" name="hobbie_description[]" placeholder="description hobbie"/>
                                         </div>
                                         
-                                    </div> --}}
+                                    </div> -->
                                 
-                                    <div class="mb-4 col-xl-12 mx-auto">
-                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Soummettre</button>
+                                    <div class="mb-4 col-xl-12">
+                                        <div class='d-flex justify-content-center'>
+                                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg w-25">Soumettre</button>
+                                        </div>
                                     </div>
                                 </form>
                                 @endif

@@ -50,7 +50,7 @@ class PersonneRequest extends FormRequest
             'prenom.max' => 'Le prénom ne doit pas dépasser 100 caractères',
             'prenom.required' => 'Le prénom est requis',
             'statut.required' => 'Le statut est requis',
-            'photo.required' => 'Vous devez télécharger une photo',
+            'photo.required' => 'Vous devez téléverser une photo',
             'hobbies.required' => 'vous devez sélectionner au moins un hobby',
             'interets.required' => 'vous devez sélectionner au moins un interet',
             // 'photo.url' => 'La photo doit être une URL valide',
