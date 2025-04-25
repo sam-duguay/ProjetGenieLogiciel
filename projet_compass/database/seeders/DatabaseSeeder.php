@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HobbyTableSeeder::class);
         $this->call(InteretTableSeeder::class);
         $this->call(PersonneTableSeeder::class);
+        $this->call(BioTableSeeder::class);
 
         //Les tables de liaisons doivent être après les tables sans liaisons
         $this->call(HobbyPersonneTableSeeder::class);

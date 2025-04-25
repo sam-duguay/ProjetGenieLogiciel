@@ -22,8 +22,8 @@ class PersonneTableSeeder extends Seeder
         //Pour s'assurer que chaque personne n'ait que un userID
         foreach ($users as $userId){
             DB::table('personnes')->insert([
-                'nom' => $fake->unique()->firstName(),
-                'prenom' => $fake->unique()->lastName(),
+                'nom' => $fake->unique()->lastName(),
+                'prenom' => $fake->unique()->firstName(),
                 'statut' => $fake->randomElement(['etudiant', 'professeur']),
                 'photo' => "asset/img/personne.jpg",
                 'age' => $fake->numberBetween(16, 100),

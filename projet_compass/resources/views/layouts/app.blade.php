@@ -16,6 +16,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link href="{{ asset('asset/css/nucleo-icons.css') }}" rel="stylesheet" />
@@ -49,10 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('disponibilites') }}">
-                                <i class="fab fa-laravel"></i>
-                                <span class="nav-link-text">Mes disponibilités</span>
-                            </a>
+                            
                         </li>
                     </ul>
                 </div>
@@ -124,8 +124,6 @@
 
                 <div class="content container-fluid {{ isset($show_sidebar) && $show_sidebar ? '' : 'px-0' }}">
                     @yield('content')
-                    @yield('calendrier')
-                    @yield('formulaire')
                 </div>
 
 

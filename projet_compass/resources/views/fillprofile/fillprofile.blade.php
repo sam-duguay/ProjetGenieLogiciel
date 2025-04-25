@@ -3,11 +3,11 @@
 @section('title', 'Profile')
 
 @if(isset($errors) && $errors->any())
-<div class="alert alert-danger">
-    @foreach($errors->all() as $error)
-    <p>{{ $error }}</p>
-    @endforeach
-</div>
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+        @endforeach
+    </div>
 @endif
 
 @section('content')
@@ -149,14 +149,14 @@
                                             <input type="text" id="hobbie_description" class="form-control" name="hobbie_description[]" placeholder="description hobbie"/>
                                         </div>
                                         
-                                    </div> -->
+                                    </div> 
                                 
                                     <div class="mb-4 col-xl-12">
                                         <div class='d-flex justify-content-center'>
                                             <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg w-25">Soumettre</button>
                                         </div>
                                     </div>
-                                </form>
+                                </form> --}}
                                 @endif
 
 
@@ -169,7 +169,7 @@
             </div>
         </div>
     </div>
-    {{-- <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const addHobbieButton = document.getElementById('new_hobbie');
             const hobbieContainer = document.getElementById('group_hobbie');
@@ -197,5 +197,5 @@
                 hobbieContainer.appendChild(newHobbieContainer);
             });
         });
-    </script> --}}
+    </script>
 @endsection

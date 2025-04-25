@@ -15,34 +15,44 @@ class InteretTableSeeder extends Seeder
     {
         DB::table('interets')->insert([
             [
-                'nom' => 'Technologie'
+                'nom' => 'Technologie',
+                'photo' => 'asset/img/interets/technologie.jpg'
             ],
             [
-                'nom' => 'Voyages'
+                'nom' => 'Voyages',
+                'photo' => 'asset/img/interets/voyages.jpg'
             ],
             [
-                'nom' => 'Art et culture'
+                'nom' => 'Art et culture',
+                'photo' => 'asset/img/interets/arts.jpg'
             ],
             [
-                'nom' => 'Histoire'
+                'nom' => 'Histoire',
+                'photo' => 'asset/img/interets/histoire.jpg'
             ],
             [
-                'nom' => 'Sciences'
+                'nom' => 'Sciences',
+                'photo' => 'asset/img/interets/sciences.jpg'
             ],
             [
-                'nom' => 'Sport'
+                'nom' => 'Sport',
+                'photo' => 'asset/img/interets/sports.jpg'
             ],
             [
-                'nom' => 'Nature et environnement'
+                'nom' => 'Nature et environnement',
+                'photo' => 'asset/img/interets/nature2.jpg'
             ],
             [
-                'nom' => 'Cuisine'
+                'nom' => 'Cuisine',
+                'photo' => 'asset/img/interets/cuisine.jpg'
             ],
             [
-                'nom' => 'Philosophie'
+                'nom' => 'Philosophie',
+                'photo' => 'asset/img/interets/philo.jpg'
             ],
             [
-                'nom' => 'Mode (Vestimentaire)'
+                'nom' => 'Mode (Vestimentaire)',
+                'photo' => 'asset/img/interets/mode.jpg'
             ],
 
         ]);

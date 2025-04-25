@@ -37,19 +37,20 @@
                 <div class="row">
                     @foreach($suggestedPersonnes as $suggestedPersonne)
                         <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                            <div class="font-icon-detail">
-                               
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ $suggestedPersonne->prenom }} {{ $suggestedPersonne->nom }}</p> 
-                                <p></p> 
+                            <a href="/profilpersonne/{{ $suggestedPersonne-> id }}">
+                                <div class="font-icon-detail">
+                                    <i class="tim-icons icon-single-02"></i>
+                                    <p>{{ $suggestedPersonne->prenom }} {{ $suggestedPersonne->nom }}</p> 
+                                    <p></p> 
+                                    
                                 
-                              
-                                <p class="text-muted">
-                                    @foreach($suggestedPersonne->common_hobbies as $hobby)
-                                        {{ $hobby->nom }}<br>
-                                    @endforeach
-                                </p>
-                            </div>
+                                    <p class="text-muted">
+                                        @foreach($suggestedPersonne->common_hobbies as $hobby)
+                                            {{ $hobby->nom }}<br>
+                                        @endforeach
+                                    </p>
+                                </div>
+                            </a>
                         </div>
                     @endforeach
                     

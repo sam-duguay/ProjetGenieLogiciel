@@ -45,13 +45,16 @@ Route::middleware(Authenticate::class)->group(function(){
     Route::patch('/personnes/{id}/update', 
     [PersonnesController::class, 'update'])->name('update');
 
-    Route::get('/disponibilites', DispoController::class)->name('disponibilites')->middleware(); 
+    Route::get('/profilpersonne/{id}/', 
+    [PersonnesController::class, 'profilpersonne'])->name('profilpersonne');
 
-    Route::get('/creer_rencontre/{id}', 
-    [RencontreController::class, 'creer_rencontre'])->name('creer_rencontre'); 
+    //Route::get('/disponibilites', DispoController::class)->name('disponibilites'); 
+
+    Route::get('/creerrencontre/{id}', 
+    [RencontreController::class, 'creerrencontre'])->name('creerrencontre'); 
 
     Route::post('/rencontre/{disponibilite}', 
-    [RencontreController::class, 'rencontre'])->name('creer_rencontre'); 
+    [RencontreController::class, 'rencontre'])->name('rencontre'); 
 
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
 });

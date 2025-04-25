@@ -8,14 +8,38 @@ use App\Models\Discipline;
 use App\Models\Hobby;
 use App\Models\Interet;
 use App\Models\Langue;
-use App\Models\Programme;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
-use Faker\Provider\ar_EG\Person;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Faker\Factory as Faker;
 
 class PersonnesController extends Controller
 {
+    public function profilpersonne($id)
+    {
+        $match = Personne::find($id);
+        $events = [];
+        $user = Auth::user();
+        $personneConnecte = Personne::where('user_id', $user->id)->get();
+
+        // $personne_match = Personne::find($request->user_id);
+        // $personne_match = Personne::find(10);
+        $disposMatch = $match->disponibilites;
+        
+        foreach ($disposMatch as $disponibilite) {
+            $events[] = [
+                'title' => 'Disponibilité',
+                'start' => $disponibilite->startTime,
+                'end' => $disponibilite->endTime,
+                'id' => $disponibilite->id,
+                'url' => '/creer_rencontre'
+            ];
+        }
+        
+        $dispoChoisi = 2;
+
+        return view ('profilpersonne.profilpersonne', compact('match', 'events'));
+    }
     public function fillprofile($id) {
         $disciplines = Discipline::all();
         $personne = Personne::find($id);

@@ -45,4 +45,8 @@ class Personne extends Model
     public function disponibilites(){
         return $this->hasMany(Disponibilite::class);
     }
+
+    public function bio(){
+        return $this->hasOne(Biographie::class);
+    }
 }
