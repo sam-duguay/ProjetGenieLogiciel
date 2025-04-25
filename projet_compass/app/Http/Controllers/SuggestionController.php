@@ -36,12 +36,12 @@ class SuggestionController extends Controller
     public function getSuggestions(Request $request)
     {
         
-        // $user = Auth::user();
+        $user = Auth::user();
 
-        // $personne = $user->personne;
+        $personne = $user->personne;
 
-        $user = User::first(); 
-        $personne = $user ? $user->personne : null;
+        // $user = User::first(); 
+        // $personne = $user ? $user->personne : null;
 
       
         

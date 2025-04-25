@@ -1,4 +1,6 @@
-@extends('layouts.app', ['page' => __('Suggestions de personnes'), 'pageSlug' => 'suggestions'])
+@extends('layouts.app')
+
+@section('title', 'Suggestions')
 
 @section('content')
 
