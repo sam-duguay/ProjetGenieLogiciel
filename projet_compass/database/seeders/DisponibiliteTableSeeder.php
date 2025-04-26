@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+use Carbon\Carbon;
 
 class DisponibiliteTableSeeder extends Seeder
 {
@@ -24,7 +25,7 @@ class DisponibiliteTableSeeder extends Seeder
 
             DB::table('disponibilites')->insert([
                 'startTime' => $date,
-                'endTime' => $fake->dateTime($date),
+                'endTime' => Carbon::parse($date)->addHour(),
                 'personne_id' => $fake->randomElement($personnes),
             ]);
         }
