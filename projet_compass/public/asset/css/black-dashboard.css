@@ -17937,7 +17937,7 @@ Copyright (c) 2015 Daniel Eden
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  text-align: justify;
+  text-align: center;
 }
 
 .nom {
@@ -18012,6 +18012,11 @@ Copyright (c) 2015 Daniel Eden
   padding: 1% 0 5% 5%;
 }
 
+.conteneur-info{
+  background-color: #94456c;
+  padding: 1% 0 5% 5%;
+}
+
 .conteneur-hobbies{
   background-color: #00bf9a;
   padding: 1% 0 5% 5%;
@@ -18019,7 +18024,7 @@ Copyright (c) 2015 Daniel Eden
 
 .conteneur-calendrier {
   border-radius: 5%;
-  padding: 5% 10%;
+  padding: 5% 5%;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
