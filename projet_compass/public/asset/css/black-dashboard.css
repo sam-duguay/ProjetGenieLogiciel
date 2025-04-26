@@ -17899,16 +17899,6 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer;
 }
 
-.fraunces-main {
-  font-family: "Fraunces", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings:
-    "SOFT" 0,
-    "WONK" 0;
-}
-
 .titre-calendrier, .titre-profil {
   padding-bottom: 1%;
   text-align: center;
@@ -17929,6 +17919,25 @@ Copyright (c) 2015 Daniel Eden
 
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.txt-modal {
+  /* font-family: 'fraunces'; */
+  font-weight: 700;
+  background: hsla(208, 67%, 81%, 1);
+
+  background: linear-gradient(90deg, hsla(208, 67%, 81%, 1) 0%, hsla(37, 65%, 85%, 1) 50%, hsla(301, 65%, 83%, 1) 100%);
+
+  background: -moz-linear-gradient(90deg, hsla(208, 67%, 81%, 1) 0%, hsla(37, 65%, 85%, 1) 50%, hsla(301, 65%, 83%, 1) 100%);
+
+  background: -webkit-linear-gradient(90deg, hsla(208, 67%, 81%, 1) 0%, hsla(37, 65%, 85%, 1) 50%, hsla(301, 65%, 83%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#AED1EF", endColorstr="#F2DFC1", GradientType=1 );
+
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-align: justify;
 }
 
 .nom {
@@ -18031,8 +18040,9 @@ Copyright (c) 2015 Daniel Eden
 .modal-content {
   background: linear-gradient(#1e1e2f, #1e1e24);
   margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 2% 5%;
   border: 1px solid #888;
+  line-height: 18pt;
   width: 50%; /* Could be more or less, depending on screen size */
 }
 

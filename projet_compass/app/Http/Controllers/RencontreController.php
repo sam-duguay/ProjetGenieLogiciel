@@ -29,8 +29,9 @@ class RencontreController extends Controller
             $rencontre->personne_id = $personne[0]->id;
             $rencontre->disponibilite_id = $dispo->id;
             
-            // dd($rencontre);
             $rencontre->save();    
+            // $dispo->delete();
+
             return redirect()->route('home')->with('message', 'Rencontre créer avec succès');        
 
         }

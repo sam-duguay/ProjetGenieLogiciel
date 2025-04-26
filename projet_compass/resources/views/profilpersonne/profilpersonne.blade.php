@@ -75,7 +75,17 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Some text in the Modal..</p>
+                <div class="py-2">
+                    <h2 class="txt-modal">Prévoir une Rencontre: </h2>
+                    <h4 id="dateDebut"></h4>
+                    <h4 id="heureDebut"></h4>
+                    <h4 id="heureFin"></h4>
+                    <p class="pt-3">Souhaitez-vous envoyer une demande de rencontre pour cette date ?</p>
+                    <form id="formulaire_rencontre" name="formulaire_rencontre" method="post" class="pt-3">
+                    @csrf
+                        <button type="submit" class="btn">Créer une rencontre</button>
+                    </form>
+                </div>
             </div>
 
         </div>
@@ -118,8 +128,24 @@
                                     info.jsEvent.preventDefault(); // don't let the browser navigate
 
                                     modal.style.display = "block";
+                                    
+                                    var dateDebut = document.getElementById('dateDebut');
+                                    dateDebut.innerHTML = "Date: " + (info.event.start).toLocaleDateString();
 
-                                    console.log(info.event.url)
+                                    var heureDebut = document.getElementById('heureDebut');
+                                    heureDebut.innerHTML = "Heure de début: " + (info.event.start).toLocaleTimeString();
+
+                                    var heureFin = document.getElementById('heureFin');
+                                    heureFin.innerHTML = "Heure de fin: " + (info.event.end).toLocaleTimeString();
+
+                                    var formulaire = document.getElementById('formulaire_rencontre');
+                                    
+                                    console.log(formulaire);
+                                    formUrl = "{{ route('rencontre',  ':id') }}";
+                                    formUrl = formUrl.replace(':id', info.event.id);
+                                    formulaire.action = formUrl;
+
+                                    // console.log(info.event.start)
                                     // if (info.event.url) {
                                     //     window.open(info.event.url + '/' + info.event.id);
                                     // }
