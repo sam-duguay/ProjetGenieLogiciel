@@ -36,6 +36,7 @@ class PersonnesController extends Controller
             ];
         }
         
+        // dd($match->bio);
         $dispoChoisi = 2;
 
         return view ('profilpersonne.profilpersonne', compact('match', 'events'));
