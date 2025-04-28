@@ -2,13 +2,13 @@
 
 @section('title', 'Profile')
 
-@if(isset($errors) && $errors->any())
+{{-- @if(isset($errors) && $errors->any())
     <div class="alert alert-danger">
         @foreach($errors->all() as $error)
         <p>{{ $error }}</p>
         @endforeach
     </div>
-@endif
+@endif --}}
 
 @section('content')
     <div class="h-100">
@@ -42,6 +42,11 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="number" id="age" class="form-control" name="age" value="{{ old('age', $personne->age) }}" />
                                             <label class="form-label" for="form3Example3c"> Votre age</label>
+                                            @foreach ($errors->get('age') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -49,6 +54,11 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="text" id="form3Example1c" class="form-control" name="prenom" value="{{ old('prenom', $personne->prenom) }}" />
                                             <label class="form-label" for="form3Example1c">Votre Prenom</label>
+                                            @foreach ($errors->get('prenom') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -89,6 +99,11 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="file" id="photo" class="form-control" name="photo" value="{{ $personne->photo  }}" />
                                             <label class="form-label" for="form3Example3c">Téléverser votre photo</label>
+                                            @foreach ($errors->get('photo') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -174,13 +189,13 @@
                                         </div>
                                         
                                     </div> 
-                                
+                                --}}
                                     <div class="mb-4 col-xl-12">
                                         <div class='d-flex justify-content-center'>
                                             <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg w-25">Soumettre</button>
                                         </div>
                                     </div>
-                                </form> --}}
+                                </form> 
                                 @endif
 
 
