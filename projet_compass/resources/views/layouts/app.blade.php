@@ -90,6 +90,13 @@
                             <ul class="navbar-nav ml-auto">
 
                             @if(Auth::check())
+                                @if(Auth::user()->id)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('fillprofile',['id' => Auth::user()->personne->id]) }}">
+                                        Profile
+                                        </a>
+                                    </li>
+                                @endif
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::is( 'logout') ? 'active' : ''}}" href="{{ route('logout') }}">
                                     Déconnexion

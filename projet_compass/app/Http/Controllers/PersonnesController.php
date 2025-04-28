@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\PersonneRequest;
 use App\Models\Discipline;
@@ -11,9 +12,11 @@ use App\Models\Langue;
 use App\Models\Programme;
 use Illuminate\Support\Facades\Log;
 use App\Models\Personne;
+use App\Models\User;
 use Faker\Provider\ar_EG\Person;
 use Illuminate\Support\Facades\DB;
-
+//use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth as Auth;
 class PersonnesController extends Controller
 {
     public function fillprofile($id) {
@@ -22,6 +25,10 @@ class PersonnesController extends Controller
         $hobbies = Hobby::all();
         $interets = Interet::all();
         $langues = Langue::all();
+
+        if(Auth::user()->personne->id != $id) {
+            return redirect()->route('home')->with('error', 'Vous n\'êtes pas autorisé à accéder à ce profil.');
+        }
         
         return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbies', 'interets', 'langues'));
     }
