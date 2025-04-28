@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\PersonneRequest;
 use App\Models\Discipline;
@@ -47,6 +48,10 @@ class PersonnesController extends Controller
         $hobbies = Hobby::all();
         $interets = Interet::all();
         $langues = Langue::all();
+
+        if(Auth::user()->personne->id != $id) {
+            return redirect()->route('home')->with('error', 'Vous n\'êtes pas autorisé à accéder à ce profil.');
+        }
         
         return view('fillprofile.fillprofile', compact('id', 'disciplines','personne', 'hobbies', 'interets', 'langues'));
     }

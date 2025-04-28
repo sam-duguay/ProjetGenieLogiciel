@@ -30,7 +30,11 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="text" id="form3Example1c" class="form-control" name="nom" value="{{ old('nom', $personne->nom) }}"/>
                                             <label class="form-label" for="form3Example1c">Votre nom</label>
-                                            
+                                            @foreach ($errors->get('nom') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -98,6 +102,11 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @foreach ($errors->get('discipline_id') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -110,6 +119,11 @@
                                                     <option value="{{ $hobbie->id }}" {{ $personne->hobbies->contains($hobbie->id) }}>{{ $hobbie->nom }}</option>
                                                 @endforeach
                                             </select>
+                                            @foreach ($errors->get('hobbies') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -123,6 +137,11 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @foreach ($errors->get('interets') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -136,6 +155,11 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @foreach ($errors->get('langues') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
