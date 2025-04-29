@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'v12.0.4',
-        'version' => '12.0.4.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '893c4b33b9c29a0983746060f6292b86f9cc02f3',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -370,6 +370,24 @@
                 0 => 'v12.5.0',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.2',
+            'version' => '2.7.2.0',
+            'reference' => '04be355f8d6734c826045d02a1079ad658322dad',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'joypixels/emoji-toolkit' => array(
+            'pretty_version' => '9.0.1',
+            'version' => '9.0.1.0',
+            'reference' => '5af2c5fb7a87a704ecbc982a7c882368216cd8a9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../joypixels/emoji-toolkit',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -386,9 +404,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v12.0.4',
-            'version' => '12.0.4.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '893c4b33b9c29a0983746060f6292b86f9cc02f3',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -841,6 +859,15 @@
             'replaced' => array(
                 0 => '4.7.6',
             ),
+        ),
+        'rtippin/messenger' => array(
+            'pretty_version' => 'v1.24.0',
+            'version' => '1.24.0.0',
+            'reference' => '0585b667cfd8657a91efd7b57647f5bf40834eaa',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../rtippin/messenger',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(
             'pretty_version' => '3.0.2',
