@@ -58,7 +58,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                            <input type="email" id="email" name="email" class="form-control" value="@edu.cegeptr.qc.ca" />
+                                            <input type="email" id="email" name="email" class="form-control" />
                                             <label class="form-label" for="form3Example3c">Votre adresse courriel</label>
                                             @foreach ($errors->get('email') as $error)
                                                 <div class="alert alert-danger">

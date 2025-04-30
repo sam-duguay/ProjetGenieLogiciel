@@ -8,24 +8,17 @@
 </div>
 @endif
 
-<!-- @if(isset($errors) && $errors->any())
+@if(isset($errors) && $errors->any())
 <div class="alert alert-danger">
   @foreach($errors->all() as $error)
   <p>{{ $error }}</p>
   @endforeach
 </div>
-@endif -->
+@endif
 
 @section('content')
     <div class="h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-        {{-- @if(isset($errors) && $errors->any())
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                    @endforeach
-                </div>
-        @endif --}}
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
