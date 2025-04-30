@@ -19,13 +19,13 @@
 @section('content')
     <div class="h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-        @if(isset($errors) && $errors->any())
+        {{-- @if(isset($errors) && $errors->any())
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $error)
                     <p>{{ $error }}</p>
                     @endforeach
                 </div>
-                @endif
+        @endif --}}
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
@@ -41,6 +41,11 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="email" id="email" class="form-control" name="email" placeholder="Votre adresse courriel" />
                                             <label class="form-label" for="email">Votre adresse courriel</label>
+                                            @foreach ($errors->get('email') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -49,6 +54,11 @@
                                         <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                             <input type="password" id="password" class="form-control" name="password" placeholder="Votre mot de passe" />
                                             <label class="form-label" for="password">Votre mot de passe</label>
+                                            @foreach ($errors->get('password') as $error)
+                                                <div class="alert alert-danger">
+                                                    <p>{{ $error }}</p>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
