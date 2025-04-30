@@ -17905,7 +17905,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .nom, .sous-titre-profil {
-  font-family: 'fraunces';
+  /* font-family: 'fraunces'; */
   font-weight: 700;
   background: hsla(208, 67%, 81%, 1);
 
@@ -17945,9 +17945,10 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .img-profil {
+  width: 75%;
   border-radius: 50%;
-  box-shadow: #94456c -5px -5px 1px, #00bf9a 5px 5px 1px;
-  /* height: 25%; */
+  border: 1px solid rgba(128, 128, 128, 0.9);
+  box-shadow: 0px 0px 5px #fff;
 }
 
 .bio-texte {
@@ -18008,10 +18009,10 @@ Copyright (c) 2015 Daniel Eden
 } */
 
 .conteneur-interet{
-  background-color: rgba(1, 1, 1, 0.4);
-  border: 1px white solid;
-  border-radius: 10%;
-  padding: 1% 0 5% 5%;
+  /* background-color: rgba(1, 1, 1, 0.4); */
+  border: 1px #e14eca solid;
+  border-radius: 2%;
+  padding: 5%;
 }
 
 .conteneur-info{
@@ -18020,9 +18021,9 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .conteneur-hobbies{
-  background-color: rgba(1, 1, 1, 0.4);
-  border: 1px white solid;
-  border-radius: 10%;
+  /* background-color: rgba(1, 1, 1, 0.4); */
+  border: 1px #e14eca solid;
+  border-radius: 2%;
   padding: 1% 0 5% 5%;
 }
 
@@ -18079,5 +18080,10 @@ Copyright (c) 2015 Daniel Eden
 
 .txt-page-index {
   text-align: justify;
+}
+
+.row-interests {
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: 0% 1% 1% 1%;
 }
 /*# sourceMappingURL=dashboard-free.css.map */

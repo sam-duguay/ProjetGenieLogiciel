@@ -37,12 +37,12 @@
                 </div>
             </div>
         </div>
-        <div class="row ml-1 my-5">
-            <div class="col-7 conteneur-interet">
-                <div class="row">
-                    <h2 class="pt-4">Intérêts</h2>
+        <div class="row ml-1 my-5 mx-3">
+            <div class="conteneur-interet w-100">
+                <div class="row w-100 row-interests">
+                    <h2 class="pt-4 mx-auto">Intérêts</h2>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach ($match->interets as $interet)
                     <div class="overlay-container w-auto mx-1">
                         <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
@@ -53,12 +53,10 @@
                     </div>
                     @endforeach
                 </div>
-            </div>
-            <div class="col-5 conteneur-hobbies">
-                <div class="row">
-                    <h2 class="pt-4">Hobbies</h2>
+                <div class="row w-100 row-interests">
+                    <h2 class="pt-4 mx-auto">Hobbies</h2>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach ($match->hobbies as $hobby)
                     <div class="overlay-container w-25 mx-1 my-1">
                         <img src="{{ asset($hobby->photo) }}" class="img-interet" alt="">
@@ -69,6 +67,8 @@
                     @endforeach
                 </div>
             </div>
+            <!-- <div class="col-6 conteneur-hobbies">
+            </div> -->
         </div>
         <div id="myModal" class="modal">
 
