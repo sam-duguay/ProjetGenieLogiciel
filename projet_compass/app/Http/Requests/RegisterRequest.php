@@ -32,12 +32,12 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator) {
-        throw new HttpResponseException(response()->json([
-            'status'=> 400,
-            'errors' => $validator->errors()
-        ])); 
-    }
+    // public function failedValidation(Validator $validator) {
+    //     throw new HttpResponseException(response()->json([
+    //         'status'=> 400,
+    //         'errors' => $validator->errors()
+    //     ])); 
+    // }
 
     public function messages () {
         return [
