@@ -18065,4 +18065,15 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: none;
   cursor: pointer;
 }
+
+.plus {
+  color: #e14eca;
+  font-size: smaller;
+  margin-top: -3%;
+  text-align: justify;
+}
+
+.txt-page-index {
+  text-align: justify;
+}
 /*# sourceMappingURL=dashboard-free.css.map */
