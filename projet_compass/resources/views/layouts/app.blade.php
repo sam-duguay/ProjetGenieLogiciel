@@ -52,8 +52,12 @@
                             <span class="nav-link-text">Suggestions</span>
                         </a>
                     </li>
-                    <li>
 
+                    <li>
+                        <a href="{{ route('messenger.indexMessenger') }}">
+                            <i class="fab fa-laravel"></i>
+                            <span class="nav-link-text">Messagerie</span>
+                        </a>
                     </li>
                 </ul>
             </div>

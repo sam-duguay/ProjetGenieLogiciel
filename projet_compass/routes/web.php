@@ -10,6 +10,7 @@ use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\DispoController;
 use App\Http\Controllers\RencontreController;
 use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\MessengerController;
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
@@ -57,4 +58,16 @@ Route::middleware(Authenticate::class)->group(function(){
     [RencontreController::class, 'rencontre'])->name('rencontre'); 
 
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
+
+
+
+
+    Route::get('/messagerie', [MessengerController::class, 'index'])->name('messenger.indexMessenger');
+
+    Route::get('messenger/show/{id}', [MessengerController::class, 'show'])->name('messenger.show');
+
+    Route::post('messenger/send/{id}', [MessengerController::class, 'send'])->name('messenger.send');
+
+    Route::get('messenger/start', [MessengerController::class, 'start'])->name('messenger.start');
+
 });
