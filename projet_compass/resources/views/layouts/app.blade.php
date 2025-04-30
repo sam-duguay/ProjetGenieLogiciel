@@ -47,10 +47,26 @@
                 <ul class="nav">
                     <li></li>
                     <li>
-                        <a href="{{ route('suggestion.index') }}">
+                        {{-- <a href="{{ route('suggestion.index') }}">
                             <i class="fab fa-laravel"></i>
                             <span class="nav-link-text">Suggestions</span>
-                        </a>
+                        </a> --}}
+                        @php
+                            $personne = Auth::user()->personne;
+                        @endphp
+
+                        @if($personne && empty($personne->photo))
+                            <a href="{{ route('fillprofile', ['id' => $personne->id]) }}">
+                                <i class="fab fa-laravel"></i>
+                                <span class="nav-link-text">Compléter mon profil</span>
+                            </a>
+                        @else
+                            <a href="{{ route('suggestion.index') }}">
+                                <i class="fab fa-laravel"></i>
+                                <span class="nav-link-text">Suggestion</span>
+                                <b class="caret mt-1"></b>  
+                            </a>
+                        @endif
                     </li>
                     <li>
 
