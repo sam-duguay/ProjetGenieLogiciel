@@ -47,13 +47,33 @@
                 <ul class="nav">
                     <li></li>
                     <li>
-                        <a href="{{ route('suggestion.index') }}">
+                        {{-- <a href="{{ route('suggestion.index') }}">
                             <i class="fab fa-laravel"></i>
                             <span class="nav-link-text">Suggestions</span>
-                        </a>
-                    </li>
-                    <li>
+                        </a> --}}
+                        {{-- @php
+                            $personne = Auth::user()->personne;
+                        @endphp --}}
 
+                        @if(Auth::check() && empty(Auth::user()->personne->photo) && Auth::user()->personne->id)
+                            <a href="{{ route('fillprofile', ['id' => Auth::user()->personne->id]) }}">
+                                <i class="fab fa-laravel"></i>
+                                <span class="nav-link-text">Compléter mon profil</span>
+                            </a>
+                        @else
+                            <a href="{{ route('suggestion.index') }}">
+                                <i class="fab fa-laravel"></i>
+                                <span class="nav-link-text">Suggestion</span>
+                                <b class="caret mt-1"></b>  
+                            </a>
+                        @endif
+                    </li>
+
+                    <li>
+                        <a href="{{ route('messenger.indexMessenger') }}">
+                            <i class="fab fa-laravel"></i>
+                            <span class="nav-link-text">Messagerie</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -91,34 +111,32 @@
                         <ul class="navbar-nav ml-auto">
 
                             @if(Auth::check())
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is( 'home') ? 'active' : ''}}" href=" {{ route('home') }}">
-                                    Accueil
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is( 'fillprofile') ? 'active' : ''}}" href="{{ 'fillprofile/' . Auth::user()->personne->id }}">
-                                    Mettre à jour profile
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is( 'logout') ? 'active' : ''}}" href="{{ route('logout') }}">
-                                    Déconnexion
-                                </a>
-                            </li>
-
-
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Request::is( 'home') ? 'active' : ''}}" href=" {{ route('home') }}">
+                                        Accueil
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Request::is( 'fillprofile') ? 'active' : ''}}" href="{{ 'fillprofile/' . Auth::user()->personne->id }}">
+                                        Mettre à jour profile
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Request::is( 'logout') ? 'active' : ''}}" href="{{ route('logout') }}">
+                                        Déconnexion
+                                    </a>
+                                </li>
                             @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">
-                                    Connexion
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('inscription') }}">
-                                    Se créer un compte
-                                </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">
+                                        Connexion
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('inscription') }}">
+                                        Se créer un compte
+                                    </a>
+                                </li>
                             @endif
 
                             <li class="separator d-lg-none"></li>
