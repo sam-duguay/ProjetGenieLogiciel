@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
         return [
             'nom' => 'required',
             'prenom' => 'required',
-            'email'=> 'required|email|regex:/^[a-zA-Z0-9._%+-]+@edu\.cegeptr\.qc\.ca$/',
+            'email'=> 'required|email',
             'password'=> 'min:6|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'min:6'
         ];
@@ -45,7 +45,7 @@ class RegisterRequest extends FormRequest
             'prenom.required'=> 'Un prenom est requis',
             'email.required'=> 'Une adresse courriel est requis',
             'email.email'=> "L'adresse courriel est invalide",
-            'email.regex'=> "L'adresse courriel doit se terminé avec @edu.cegeptr.qc.ca",
+           // 'email.regex'=> "L'adresse courriel doit se terminé avec @edu.cegeptr.qc.ca",
             'password.min'=> "Le mot de passe doit etre compose d'au moins 6 caracteres",
             'password.required_with'=> 'veuillez confirmer le mot de passe',
             'password.same'=> 'Le mot de passe est la confirmation de mot de passe doit etre pareil',
