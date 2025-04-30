@@ -8,14 +8,6 @@
     </div>
 @endif
 
-{{-- @if(isset($errors) && $errors->any())
-<div class="alert alert-danger">
-    @foreach($errors->all() as $error)
-    <p>{{ $error }}</p>
-    @endforeach
-</div>
-@endif --}}
-
 @section('content')
     <div class="h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
