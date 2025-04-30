@@ -29,7 +29,7 @@
   --teal: #11cdef;
   --cyan: #2bffc6;
   --white: #ffffff;
-  --gray: #6c757d;
+  --gray: #4e5459;
   --gray-dark: #32325d;
   --light: #ced4da;
   --lighter: #e9ecef;
@@ -18008,7 +18008,9 @@ Copyright (c) 2015 Daniel Eden
 } */
 
 .conteneur-interet{
-  background-color: #94456c;
+  background-color: rgba(1, 1, 1, 0.4);
+  border: 1px white solid;
+  border-radius: 10%;
   padding: 1% 0 5% 5%;
 }
 
@@ -18018,7 +18020,9 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .conteneur-hobbies{
-  background-color: #00bf9a;
+  background-color: rgba(1, 1, 1, 0.4);
+  border: 1px white solid;
+  border-radius: 10%;
   padding: 1% 0 5% 5%;
 }
 
