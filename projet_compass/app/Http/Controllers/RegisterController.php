@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Personne;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -43,10 +44,8 @@ class RegisterController extends Controller
 
             return redirect()->route('fillprofile', $personne->id)->with('message', 'Ajout avec succès, veuillez remplir votre profil');
         } catch (Exception $e) {
-            return response()->json([
-                'status' => 400,
-                'errors' => $e
-            ]);
+            Log::debug($e);
+            return redirect()->back()->withErrors(['Une erreur est survenue lors de la mise à jour.']);
         }
     }
 }
