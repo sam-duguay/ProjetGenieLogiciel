@@ -17946,8 +17946,13 @@ Copyright (c) 2015 Daniel Eden
 
 .img-profil {
   border-radius: 50%;
+<<<<<<< Updated upstream
   box-shadow: #94456c -5px -5px 1px, #00bf9a 5px 5px 1px;
   /* height: 25%; */
+=======
+  border: 1px solid rgba(128, 128, 128, 0.9);
+  /* box-shadow: 0px 0px 5px #fff; */
+>>>>>>> Stashed changes
 }
 
 .bio-texte {
@@ -18039,6 +18044,7 @@ Copyright (c) 2015 Daniel Eden
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  border-radius: 5%;
 }
 
 /* Modal Content/Box */

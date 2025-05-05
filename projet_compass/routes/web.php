@@ -10,6 +10,10 @@ use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\DispoController;
 use App\Http\Controllers\RencontreController;
 use App\Http\Middleware\Authenticate;
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\MessagesController;
+>>>>>>> Stashed changes
 
 // Route::get('Accueil', [StudentsController::class, 'index'])->name('etudiant.index');
 
@@ -57,4 +61,17 @@ Route::middleware(Authenticate::class)->group(function(){
     [RencontreController::class, 'rencontre'])->name('rencontre'); 
 
     Route::get('/suggestions', [SuggestionController::class, 'index'])->name('suggestion.index');
+<<<<<<< Updated upstream
+=======
+
+    route::middleware(Authenticate::class)->group(function(){
+        // Route::get('/messenger', [MessagesController::class, 'index'])->name('messenger');
+        Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
+        Route::get('/messages/create', [MessagesController::class, 'create'])->name('messages.create');
+        Route::get('/messages/create/{match}', [MessagesController::class, 'create_personne'])->name('messages.create.personne');
+        Route::post('/messages/create/{match}', [MessagesController::class, 'store'])->name('messages.store');
+        Route::get('/messenger/{id}', [MessagesController::class, 'show'])->name('messages.show');
+        Route::put('/messenger/{id}', [MessagesController::class, 'update'])->name('messages.update');
+    });
+>>>>>>> Stashed changes
 });
