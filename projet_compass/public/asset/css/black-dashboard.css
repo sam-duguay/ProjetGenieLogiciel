@@ -17946,13 +17946,8 @@ Copyright (c) 2015 Daniel Eden
 
 .img-profil {
   border-radius: 50%;
-<<<<<<< Updated upstream
-  box-shadow: #94456c -5px -5px 1px, #00bf9a 5px 5px 1px;
-  /* height: 25%; */
-=======
   border: 1px solid rgba(128, 128, 128, 0.9);
   /* box-shadow: 0px 0px 5px #fff; */
->>>>>>> Stashed changes
 }
 
 .bio-texte {
@@ -17970,7 +17965,7 @@ Copyright (c) 2015 Daniel Eden
 
 .overlay-container {
   position: relative;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .overlay {
@@ -18013,7 +18008,9 @@ Copyright (c) 2015 Daniel Eden
 } */
 
 .conteneur-interet{
-  background-color: #94456c;
+  /* background-color: #94456c; */
+  border: 1px solid var(--primary);
+  border-radius:3%;
   padding: 1% 0 5% 5%;
 }
 
@@ -18023,13 +18020,15 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .conteneur-hobbies{
-  background-color: #00bf9a;
+  border: 1px solid var(--primary);
+  border-radius:3%;
   padding: 1% 0 5% 5%;
 }
 
 .conteneur-calendrier {
   border-radius: 5%;
-  padding: 5% 5%;
+  width:60%;
+  /* padding: 1% 1%; */
   background-color: rgba(255, 255, 255, 0.1);
 }
 
