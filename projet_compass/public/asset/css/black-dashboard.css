@@ -17965,7 +17965,7 @@ Copyright (c) 2015 Daniel Eden
 
 .overlay-container {
   position: relative;
-  width: 50%;
+  width: 20%;
 }
 
 .overlay {
@@ -17975,7 +17975,7 @@ Copyright (c) 2015 Daniel Eden
   left: 0;
   right: 0;
   height: 100%;
-  width: 5%;
+  width: 100%;
   opacity: 0;
   transition: .5s ease;
   background-color: rgba(0, 0, 0, 0.5);
@@ -17984,7 +17984,7 @@ Copyright (c) 2015 Daniel Eden
 
 .img-interet {
   object-fit: cover;
-  height: 5rem;
+  /* height: 5rem; */
 }
 
 .img-interet:hover {
@@ -18008,9 +18008,8 @@ Copyright (c) 2015 Daniel Eden
 } */
 
 .conteneur-interet{
-  /* background-color: #94456c; */
   border: 1px solid var(--primary);
-  border-radius:3%;
+  border-radius: 2%;
   padding: 1% 0 5% 5%;
 }
 
@@ -18021,13 +18020,14 @@ Copyright (c) 2015 Daniel Eden
 
 .conteneur-hobbies{
   border: 1px solid var(--primary);
-  border-radius:3%;
+  border-radius: 2%;
   padding: 1% 0 5% 5%;
 }
 
 .conteneur-calendrier {
   border-radius: 5%;
   width:60%;
+  padding: 0;
   /* padding: 1% 1%; */
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -18069,5 +18069,12 @@ Copyright (c) 2015 Daniel Eden
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.text-interet-hobbies
+{
+  background-color: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  padding-bottom: 5%;
 }
 /*# sourceMappingURL=dashboard-free.css.map */

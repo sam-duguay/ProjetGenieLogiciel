@@ -38,34 +38,41 @@
             </div>
         </div>
         <div class="row my-5 w-100">
-            <div class="offset-2 col-8 conteneur-interet">
-                <div class="row">
-                    <h2 class="pt-4">Intérêts</h2>
+            <div class="offset-1 col-10 conteneur-interet">
+                <div class="row w-100 justify-content-center">
+                    <h2 class="pt-4 text-center text-interet-hobbies">Intérêts</h2>
                 </div>
+                <div class="row w-100 justify-content-center">
                 @foreach ($match->interets as $interet)
                 <div class="overlay-container mx-1">
                     <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
                     <div class="overlay">
-                        <div class="overlay-txt pt-2">{{$interet->nom}}</h4>
+                        <div class="overlay-txt pt-2">
+                            <h4>{{$interet->nom}}</h4>
                         </div>
                     </div>
                 </div>
                 @endforeach
+                </div>
             </div>
         </div>
         <div class="row my-5 w-100">
-            <div class="offset-2 col-8 conteneur-hobbies">
-                <div class="row">
-                    <h2 class="pt-4">Hobbies</h2>
+            <div class="offset-1 col-10 conteneur-interet">
+                <div class="row w-100 justify-content-center">
+                    <h2 class="pt-4 text-center text-interet-hobbies">Hobbies</h2>
                 </div>
+                <div class="row w-100 justify-content-center">
                 @foreach ($match->hobbies as $hobby)
-                <div class="overlay-container w-auto mx-1">
+                <div class="overlay-container mx-1">
                     <img src="{{ asset($hobby->photo) }}" class="img-interet" alt="">
                     <div class="overlay">
-                        <div class="overlay-txt pt-2">{{$hobby->nom}}</div>
+                        <div class="overlay-txt pt-2">
+                            <h4>{{$hobby->nom}}</h4>
+                        </div>
                     </div>
                 </div>
                 @endforeach
+                </div>
             </div>
             <div class="row">
                 <a href="{{ route('messages') }}"></a>
