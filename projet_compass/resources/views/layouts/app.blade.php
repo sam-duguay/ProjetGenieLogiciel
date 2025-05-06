@@ -69,14 +69,10 @@
                         @endif
                     </li>
                     <li>
-<<<<<<< Updated upstream
-
-=======
                         <a href="{{ route('messages') }}">
                             <i class="fab fa-laravel"></i>
                             <span class="nav-link-text">Messagerie</span>
                         </a>
->>>>>>> Stashed changes
                     </li>
                 </ul>
             </div>
@@ -134,7 +130,7 @@
                                 </a>
                             </li class="nav-item">
                             <li>
-                                <a class="nav-link" href="/messages/create">Create New Message</a>
+                                <a class="nav-link" href="{{ route('messages.create')}}">Create New Message</a>
                             </li>
 
                             @else

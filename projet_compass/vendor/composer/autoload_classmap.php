@@ -7,11 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-<<<<<<< Updated upstream
-=======
     'App\\Http\\Controllers\\DispoController' => $baseDir . '/app/Http/Controllers/DispoController.php',
     'App\\Http\\Controllers\\LogOutController' => $baseDir . '/app/Http/Controllers/LogOutController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
+    'App\\Http\\Controllers\\MessagesController' => $baseDir . '/app/Http/Controllers/MessagesController.php',
     'App\\Http\\Controllers\\MessengerController' => $baseDir . '/app/Http/Controllers/MessengerController.php',
     'App\\Http\\Controllers\\PersonnesController' => $baseDir . '/app/Http/Controllers/PersonnesController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
@@ -31,7 +30,6 @@ return array(
     'App\\Models\\Langue' => $baseDir . '/app/Models/Langue.php',
     'App\\Models\\Personne' => $baseDir . '/app/Models/Personne.php',
     'App\\Models\\Rencontre' => $baseDir . '/app/Models/Rencontre.php',
->>>>>>> Stashed changes
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -158,7 +156,18 @@ return array(
     'Cron\\MinutesField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
+    'Database\\Seeders\\BioTableSeeder' => $baseDir . '/database/seeders/BioTableSeeder.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
+    'Database\\Seeders\\DisciplineTableSeeder' => $baseDir . '/database/seeders/DisciplineTableSeeder.php',
+    'Database\\Seeders\\DisponibiliteTableSeeder' => $baseDir . '/database/seeders/DisponibiliteTableSeeder.php',
+    'Database\\Seeders\\HobbyPersonneTableSeeder' => $baseDir . '/database/seeders/HobbyPersonneTableSeeder.php',
+    'Database\\Seeders\\HobbyTableSeeder' => $baseDir . '/database/seeders/HobbyTableSeeder.php',
+    'Database\\Seeders\\InteretPersonneTableSeeder' => $baseDir . '/database/seeders/InteretPersonneTableSeeder.php',
+    'Database\\Seeders\\InteretTableSeeder' => $baseDir . '/database/seeders/InteretTableSeeder.php',
+    'Database\\Seeders\\LanguePersonneTableSeeder' => $baseDir . '/database/seeders/LanguePersonneTableSeeder.php',
+    'Database\\Seeders\\LangueTableSeeder' => $baseDir . '/database/seeders/LangueTableSeeder.php',
+    'Database\\Seeders\\PersonneTableSeeder' => $baseDir . '/database/seeders/PersonneTableSeeder.php',
+    'Database\\Seeders\\ProgrammeTableSeeder' => $baseDir . '/database/seeders/ProgrammeTableSeeder.php',
     'DateError' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
     'DateException' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
     'DateInvalidOperationException' => $vendorDir . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',

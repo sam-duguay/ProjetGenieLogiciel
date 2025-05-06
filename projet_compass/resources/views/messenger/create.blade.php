@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container ps4">
     <h1>Create a new message</h1>
-    <form action="{{ route('messages.store') }}" method="post">
+    <form action="{{ route('messages.store', '0') }}" method="post">
         {{ csrf_field() }}
         <div class="col-md-6">
             <!-- Subject Form Input -->
@@ -33,4 +34,5 @@
             </div>
         </div>
     </form>
+</div>
 @stop

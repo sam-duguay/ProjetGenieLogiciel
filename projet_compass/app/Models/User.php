@@ -2,25 +2,16 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+// // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-<<<<<<< Updated upstream
-
-class User extends Authenticatable
-{
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
-=======
+// use HasFactory, Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, Messagable;
->>>>>>> Stashed changes
-
     /**
      * The attributes that are mass assignable.
      *
