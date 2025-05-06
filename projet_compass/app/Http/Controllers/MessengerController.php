@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use RTippin\Messenger\Models\Conversation;
-use RTippin\Messenger\Models\Message;
-use RTippin\Messenger\Models\Thread;
 use Illuminate\Support\Facades\Auth;
-use RTippin\Messenger\Models\Messenger;
 use App\Models\User;
 
 
@@ -74,10 +70,15 @@ public function start()
     // Remplace 1 par l'ID de l'utilisateur avec lequel tu veux démarrer la conversation.
     $recipient = User::find(1); // Remplace 1 par l'ID de l'utilisateur réel
 
+    $messenger = Messenger::newModelInstance();
+    dd($messenger);
+
     // Crée un nouveau fil de discussion (conversation)
-    $thread = Messenger::createThread([$recipient]); // Crée une conversation avec l'utilisateur
+    // $thread = Messenger::createThread([$recipient]); // Crée une conversation avec l'utilisateur
 
     // Après avoir créé la conversation, redirige vers celle-ci
-    return redirect()->route('messenger.show', $thread->id);
+    // return redirect()->route('messenger.show', $thread->id);
+    return redirect()->route('messenger.show', $messenger);
+
 }
 }

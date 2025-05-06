@@ -26,6 +26,7 @@ class RegisterController extends Controller
             $hashedPassword = Hash::make($request->password);
 
             $user = new User();
+            $user->name = $request->nom;
             $user->email = $request->email;
             $user->password = $request->password;
             $user->save();

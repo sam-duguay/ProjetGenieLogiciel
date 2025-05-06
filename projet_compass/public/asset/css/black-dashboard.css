@@ -29,7 +29,7 @@
   --teal: #11cdef;
   --cyan: #2bffc6;
   --white: #ffffff;
-  --gray: #4e5459;
+  --gray: #6c757d;
   --gray-dark: #32325d;
   --light: #ced4da;
   --lighter: #e9ecef;
@@ -17905,7 +17905,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .nom, .sous-titre-profil {
-  /* font-family: 'fraunces'; */
+  font-family: 'fraunces';
   font-weight: 700;
   background: hsla(208, 67%, 81%, 1);
 
@@ -17945,10 +17945,14 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .img-profil {
-  width: 75%;
   border-radius: 50%;
+<<<<<<< Updated upstream
+  box-shadow: #94456c -5px -5px 1px, #00bf9a 5px 5px 1px;
+  /* height: 25%; */
+=======
   border: 1px solid rgba(128, 128, 128, 0.9);
-  box-shadow: 0px 0px 5px #fff;
+  /* box-shadow: 0px 0px 5px #fff; */
+>>>>>>> Stashed changes
 }
 
 .bio-texte {
@@ -18009,10 +18013,8 @@ Copyright (c) 2015 Daniel Eden
 } */
 
 .conteneur-interet{
-  /* background-color: rgba(1, 1, 1, 0.4); */
-  border: 1px #e14eca solid;
-  border-radius: 2%;
-  padding: 5%;
+  background-color: #94456c;
+  padding: 1% 0 5% 5%;
 }
 
 .conteneur-info{
@@ -18021,9 +18023,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .conteneur-hobbies{
-  /* background-color: rgba(1, 1, 1, 0.4); */
-  border: 1px #e14eca solid;
-  border-radius: 2%;
+  background-color: #00bf9a;
   padding: 1% 0 5% 5%;
 }
 
@@ -18044,6 +18044,7 @@ Copyright (c) 2015 Daniel Eden
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  border-radius: 5%;
 }
 
 /* Modal Content/Box */
@@ -18069,21 +18070,5 @@ Copyright (c) 2015 Daniel Eden
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.plus {
-  color: #e14eca;
-  font-size: smaller;
-  margin-top: -3%;
-  text-align: justify;
-}
-
-.txt-page-index {
-  text-align: justify;
-}
-
-.row-interests {
-  background-color: rgba(255, 255, 255, 0.05);
-  margin: 0% 1% 1% 1%;
 }
 /*# sourceMappingURL=dashboard-free.css.map */
