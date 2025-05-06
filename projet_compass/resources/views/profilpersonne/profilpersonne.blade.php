@@ -37,12 +37,12 @@
                 </div>
             </div>
         </div>
-        <div class="row my-5 w-100">
-            <div class="offset-1 col-10 conteneur-interet">
+        <div class="row pt-5 w-100">
+            <div class="conteneur-interet">
                 <div class="row w-100 justify-content-center">
                     <h2 class="pt-4 text-center text-interet-hobbies">Intérêts</h2>
                 </div>
-                <div class="row w-100 justify-content-center">
+                <div class="row w-100 justify-content-center conteneur-hobbies-interets">
                 @foreach ($match->interets as $interet)
                 <div class="overlay-container mx-1">
                     <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
@@ -56,12 +56,12 @@
                 </div>
             </div>
         </div>
-        <div class="row my-5 w-100">
-            <div class="offset-1 col-10 conteneur-interet">
+        <div class="row w-100">
+            <div class="conteneur-interet">
                 <div class="row w-100 justify-content-center">
                     <h2 class="pt-4 text-center text-interet-hobbies">Hobbies</h2>
                 </div>
-                <div class="row w-100 justify-content-center">
+                <div class="row w-100 justify-content-center conteneur-hobbies-interets">
                 @foreach ($match->hobbies as $hobby)
                 <div class="overlay-container mx-1">
                     <img src="{{ asset($hobby->photo) }}" class="img-interet" alt="">
@@ -107,8 +107,9 @@
 
 </div>
 <div class="row ms-1 mt-1">
-    <div class="container mx-auto conteneur-calendrier">
+    <div class="container mx-auto justify-content-center conteneur-calendrier">
         <div class="offset-2 col-8 py-5">
+            <h1 class="text-center pb-4">Disponibilités</h1>
             <div id="calendar">
                 @push('scripts')
                 <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
@@ -166,7 +167,7 @@
                             editable: true
                         });
                         calendar.render();
-                        calendar.setOption('height', '40%');
+                        calendar.setOption('height', '100%');
                         calendar.editable = true
                     });
                 </script>
