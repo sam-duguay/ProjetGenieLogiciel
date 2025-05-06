@@ -17965,7 +17965,7 @@ Copyright (c) 2015 Daniel Eden
 
 .overlay-container {
   position: relative;
-  /* width: 50%; */
+  width: 50%;
 }
 
 .overlay {
@@ -17975,7 +17975,7 @@ Copyright (c) 2015 Daniel Eden
   left: 0;
   right: 0;
   height: 100%;
-  width: 100%;
+  width: 5%;
   opacity: 0;
   transition: .5s ease;
   background-color: rgba(0, 0, 0, 0.5);
