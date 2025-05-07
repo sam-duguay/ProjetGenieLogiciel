@@ -551,10 +551,6 @@ trait HasAttributes
             return;
         }
 
-        if ($this->attemptToAutoloadRelation($key)) {
-            return $this->relations[$key];
-        }
-
         if ($this->preventsLazyLoading) {
             $this->handleLazyLoadingViolation($key);
         }
