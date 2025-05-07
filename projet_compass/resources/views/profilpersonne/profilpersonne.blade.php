@@ -37,53 +37,35 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-5 w-100">
-            <div class="conteneur-interet">
-                <div class="row w-100 justify-content-center">
-                    <h2 class="pt-4 text-center text-interet-hobbies">Intérêts</h2>
-                </div>
-<<<<<<< HEAD
+
                 <div class="row w-100 justify-content-center conteneur-hobbies-interets">
+        <div class="row my-5 w-100">
+            <div class="offset-2 col-8 conteneur-interet">
+                <div class="row">
+                    <h2 class="pt-4">Intérêts</h2>
+                </div>
+
                 @foreach ($match->interets as $interet)
                 <div class="overlay-container mx-1">
                     <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
                     <div class="overlay">
-<<<<<<< HEAD
                         <div class="overlay-txt pt-2">
                             <h4>{{$interet->nom}}</h4>
-=======
-                <div class="row">
-                    @foreach ($match->interets as $interet)
-                    <div class="overlay-container w-auto mx-1">
-                        <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
-                        <div class="overlay">
-                            <div class="overlay-txt pt-2">{{$interet->nom}}</h4>
-                            </div>
->>>>>>> parent of 6452866 (messagerie)
-=======
+
                         <div class="overlay-txt pt-2">{{$interet->nom}}</h4>
->>>>>>> parent of f72b1f6 (changes)
+
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
+
                 @endforeach
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="row w-100">
-            <div class="conteneur-interet">
-                <div class="row w-100 justify-content-center">
-                    <h2 class="pt-4 text-center text-interet-hobbies">Hobbies</h2>
-                </div>
-                <div class="row w-100 justify-content-center conteneur-hobbies-interets">
-=======
         <div class="row my-5 w-100">
             <div class="offset-2 col-8 conteneur-hobbies">
                 <div class="row">
                     <h2 class="pt-4">Hobbies</h2>
                 </div>
->>>>>>> parent of f72b1f6 (changes)
                 @foreach ($match->hobbies as $hobby)
                 <div class="overlay-container w-auto mx-1">
                     <img src="{{ asset($hobby->photo) }}" class="img-interet" alt="">
