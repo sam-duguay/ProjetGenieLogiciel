@@ -38,40 +38,40 @@
             </div>
         </div>
         <div class="row pt-5 w-100">
-            <div class="conteneur-interet">
-                <div class="row w-100 justify-content-center">
-                    <h2 class="pt-4 text-center text-interet-hobbies">Intérêts</h2>
+            <div class="conteneur-hobbies-interets pt-1">
+                <div class="row w-100 justify-content-center pt-4">
+                    <h2 class="text-center">Intérêts</h2>
                 </div>
-                <div class="row w-100 justify-content-center conteneur-hobbies-interets">
-                @foreach ($match->interets as $interet)
-                <div class="overlay-container mx-1">
-                    <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
-                    <div class="overlay">
-                        <div class="overlay-txt pt-2">
-                            <h4>{{$interet->nom}}</h4>
+                <div class="row w-100 justify-content-center">
+                    @foreach ($match->interets as $interet)
+                    <div class="overlay-container mx-1">
+                        <img src="{{ asset($interet->photo) }}" class="img-interet" alt="">
+                        <div class="overlay">
+                            <div class="overlay-txt pt-4">
+                                <h4>{{$interet->nom}}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
-        <div class="row w-100">
-            <div class="conteneur-interet">
-                <div class="row w-100 justify-content-center">
-                    <h2 class="pt-4 text-center text-interet-hobbies">Hobbies</h2>
+        <div class="row pt-3 w-100">
+            <div class="conteneur-hobbies-interets pt-1">
+                <div class="row w-100 justify-content-center pt-4">
+                    <h2 class="text-center">Hobbies</h2>
                 </div>
-                <div class="row w-100 justify-content-center conteneur-hobbies-interets">
-                @foreach ($match->hobbies as $hobby)
-                <div class="overlay-container mx-1">
-                    <img src="{{ asset($hobby->photo) }}" class="img-interet" alt="">
-                    <div class="overlay">
-                        <div class="overlay-txt pt-2">
-                            <h4>{{$hobby->nom}}</h4>
+                <div class="row w-100 justify-content-center">
+                    @foreach ($match->hobbies as $hobby)
+                    <div class="overlay-container mx-1">
+                        <img src="{{ asset($hobby->photo) }}" class="img-interet" alt="">
+                        <div class="overlay">
+                            <div class="overlay-txt pt-4">
+                                <h4>{{$hobby->nom}}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
                 </div>
             </div>
             <div class="row">
