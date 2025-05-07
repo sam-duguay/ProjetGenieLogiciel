@@ -16,10 +16,9 @@
             <!-- Message Form Input -->
             <div class="form-group">
                 <label class="control-label">Message</label>
-                <textarea name="message" class="form-control">{{ old('message') }}</textarea>
+                <textarea name="message" class="form-control" placeholder="Salut {{ $personne->prenom . ' ' . $personne->nom  }}! Comment ça va?">{{ old('message') }}</textarea>
             </div>
 
-            <p>{{ $users->name }}</p>
             <!-- Submit Form Input -->
             <div class="form-group">
                 <button type="submit" class="btn btn-primary form-control">Envoyer</button>
